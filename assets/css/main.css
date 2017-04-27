@@ -1,6 +1,6 @@
 @charset "UTF-8";
 @import url(font-awesome.min.css);
-@import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:200");
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:200");
 
 /*
 	Visualize by TEMPLATED
@@ -1431,7 +1431,7 @@
 	body, input, select, textarea {
 		color: rgba(255, 255, 255, 0.75);
 		font-family: "Source Sans Pro", Helvetica, sans-serif;
-		font-size: 14pt;
+		font-size: 13pt;
 		font-weight: 200;
 		line-height: 1.65;
 	}
@@ -1469,7 +1469,7 @@
 	}
 
 	p {
-		margin: 0 0 2em 0;
+		margin: 0 0 0.5em 0;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
@@ -2673,4 +2673,33 @@
 	    height:100%;
 	    width:100%;
 	    position:absolute;
+	}
+
+	section#main div h2 {
+		color: #ffffff;
+		font-weight: 200;
+		line-height: 1.5;
+		margin: 0 0 0.5em 0;
+	}
+
+	.blogtitle {
+		color: #ffffff;
+		font-weight: 200;
+		line-height: 1.5;
+		margin: 0 0 0em 0;
+	}
+
+	.blogdate {
+		color: #B9B9B9;
+		font-size: 0.9em;
+		font-weight: 200;
+		line-height: 1;
+		margin: 0 0 0.75em 0;
+	}
+
+	section#main div img {
+		max-width: 100%; 
+		display:block; 
+		height: auto;
+		margin: 0 0 0.75em 0;
 	}
