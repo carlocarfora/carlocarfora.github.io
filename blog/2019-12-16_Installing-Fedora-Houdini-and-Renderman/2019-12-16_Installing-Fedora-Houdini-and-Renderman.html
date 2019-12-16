@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+ <html>
+   <head>
+     <meta charset="utf-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <title>Carlo Carfora - CG Artist</title>
+     <meta name="description" content="">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <meta name="robots" content="all,follow">
+     <!-- Bootstrap-->
+     <link rel="stylesheet" href="../../css/bootstrap.min.css">
+     <!-- Google fonts - Open Sans-->
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,300,700,400italic">
+     <link href="https://fonts.googleapis.com/css?family=Cutive+Mono" rel="stylesheet">
+     <!-- Font Awesome CSS-->
+     <link rel="stylesheet" href="../../css/font-awesome.min.css">
+     <!-- owl carousel-->
+     <link rel="stylesheet" href="../../css/owl.carousel.css">
+     <link rel="stylesheet" href="../../css/owl.theme.css">
+     <!-- theme stylesheet-->
+     <link rel="stylesheet" href="../../css/style.default.css" id="theme-stylesheet">
+     <!-- Custom stylesheet - for your changes-->
+     <link rel="stylesheet" href="../../css/custom.css">
+     <!-- Favicon-->
+     <link rel="shortcut icon" href="favicon.png">
+     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
+         <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+   </head>
+   <body>
+     <div id="all">
+       <div class="container-fluid">
+         <div class="row row-offcanvas row-offcanvas-left"> 
+           <!--   *** SIDEBAR ***-->
+           <div id="sidebar" class="col-xs-6 col-sm-4 col-md-3 sidebar-offcanvas">
+             <div class="sidebar-content">
+               <h1 class="sidebar-heading"> <a href="index.html">Carlo Carfora - CG Artist</a></h1>
+               <p class="sidebar-p">A CG Artist curious about all, specialising in Lighting and Rendering.</p>
+               <ul class="sidebar-menu"> 
+                 <li><a href="../../about.html">About</a></li>
+                 <li><a href="../../index.html">Work</a></li>
+                 <li><a href="../../code.html">Code</a></li>
+                 <li><a href="../../blog.html">Blog</a></li>
+                 <li><a href="../../contact.html">Contact</a></li>                                                       
+               </ul>
+               <p class="social">
+                 <a href="http://www.twitter.com/carlo_carfora" data-animate-hover="pulse" class="external"><i class="fa fa-twitter"></i></a>
+                 <a href="http://www.vimeo.com/carlocarfora" data-animate-hover="pulse" class="external"><i class="fa fa-vimeo"></i></a>
+                 <a href="http://www.linkedin.com/in/carlocarfora" data-animate-hover="pulse" class="external"><i class="fa fa-linkedin"></i></a>
+                 <a href="https://github.com/carlocarfora" data-animate-hover="pulse" class="external"><i class="fa fa-github"></i></a>
+                 <a href="https://www.instagram.com/carlo_c/" data-animate-hover="pulse" class="external"><i class="fa fa-instagram"></i></a>
+               </p>
+               <div class="copyright">
+                 <p class="credit">© 2019 Carlo Carfora – Built with Staticfolio | Template by <a href="https://bootstrapious.com/e-commerce-templates" class="external">Bootstrapious</a></p>
+                 <!-- Please do not remove the backlink to us, unless you support the development at http://bootstrapious.com/donate. It is part of the license conditions. Thanks for understanding :)        -->
+                 
+               </div>
+             </div>
+           </div>
+           <!--   *** SIDEBAR END ***  -->
+           <!--   *** DETAIL ***-->
+           <div class="col-xs-12 col-sm-8 col-md-9 content-column white-background">
+             <div class="small-navbar visible-xs">
+               <button type="button" data-toggle="offcanvas" class="btn btn-ghost pull-left"> <i class="fa fa-align-left"> </i>Menu</button>
+               <h1 class="small-navbar-heading"> <a href="index.html">Carlo Carfora - CG Artist</a></h1>
+             </div>
+             <div class="row">
+               <div class="col-lg-8">
+                 <div class="content-column-content">
+                   <h2 class="blogtitle">Installing Fedora Houdini and Renderman</h2>
+                   <p class="blogdate">Posted on 2019-12-16</p> 
+                   <h3>Setting up Fedora with Houdini and Renderman</h3>
+<p>This is a guide on setting up a system with Fedora, Houdini and Renderman. There were a few obstacles along the way and hopefully this can help anyone who might want to do the same thing. You may not have the same issues I did, but I had to do some extensive googling to find the answers to issues so hope this helps!</p>
+<h4>Installing Fedora with Optimus</h4>
+<p>Installed the vanilla Fedora 31 Workstation with GNOME. My laptop is an NVIDIA Optimus machine, and this has support out of the box once you install the proprietory NVIDIA drivers. It did not boot up initially though when trying to run the live USB; this is common with Optimus setups.</p>
+<p>When booting, in the GRUB menu press <code>e</code> and add <code>nouveau.modeset=0</code> to the bootup parameters. Put it just before the word <code>quiet</code>, not at the end of it all.</p>
+<p>Once you're in Fedora, install the Free and Nonfree repos from [<a href="https://rpmfusion.org">https://rpmfusion.org</a>] then follow the guide <a href="https://rpmfusion.org/Howto/Optimus">here</a> to get Optimus working.</p>
+<p>Check it's all good with <code>__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia glxinfo | grep vendor</code>. You'll need to start Houdini with this command to use the NVIDIA card, so wrap it up into an alias or bash script.</p>
+<h4>Installing Houdini</h4>
+<p>Once that's done, you can move on to installing Houdini. Grab the download, install as you would in the usual way. I had Houdini refusing to start because I was missing a couple of shared libraries, specifically <code>libnsl</code> and <code>libGLU</code>. I found and installed both of these libraries using the package manager. If you have anything else missing for some reason, you can probably find and install them using DNF.</p>
+<p>I found that the license server service <code>sesinetd</code> was failing to start on boot. This is because of SELinux and the default security setup. The way that I got this working was to install a package called <code>setroubleshoot</code>. Once you have this installed, when you reboot on GNOME it'll pop up with an alert saying that the service <code>sesinetd</code> could not be started. It'll also give you the commands to fix this, it looks something like this (yours could be different so check the output rather than copy/pasting):</p>
+<pre><code class="lang-bash"> ausearch -c &#39;sesinetd&#39; --raw | audit2allow -M my-sesinetd
+ semodule -X 300 -i my-sesinetd.pp
+</code></pre>
+<p>Make sure to run these as <code>sudo</code> and with the first command, you'll need to put <code>sudo</code> after the pipe (|) as well as <code>audit2allow</code> wants to run as <code>sudo</code> too.</p>
+<h4>Installing Renderman</h4>
+<p>To install Renderman NC, you need to download their installer. I had trouble running their installer to start with; Fedora will install it for you then you can then find it in <code>/opt/pixar</code> which is not immediately obvious.</p>
+<p>When trying to run <code>RenderManInstaller</code>, it would crash with <code>Segmentation Fault</code>. Searchign the forums, I found a thread that mentions it uses a version of openssl that isn't installed by default. Fix this by installing the <code>compat-openssl10-devel</code> package using DNF. You can then proceed to install Renderman NC for your machine.</p>
+<p>Once you have installed Renderman NC, you'll need to edit your <code>houdini.env</code> file which you can find usually in <code>~/houdini##.#</code>. Add these lines to the file:</p>
+<pre><code class="lang-bash"> # RENDERMAN ENV VARIABLES
+ RMANTREE=/opt/pixar/RenderManProServer-23.0
+ RFHTREE=/opt/pixar/RenderManForHoudini-23.0
+ HOUDINI_PATH=$RFHTREE/18.0:&amp;
+</code></pre>
+<p>If all went well, you can run Houdini and see Renderman is installed. In my case, when I tried to drop down a ris ROP and render something I got another error message about a missing library called <code>libtinfo</code>. To install this library, I had to install a package called <code>ncurses-compat-libs</code> from DNF.</p>
+<p>After this, I was able to load Houdini and Renderman. I hope this helps anyone out there who might have had issues like I did!</p>
+<p>Carlo</p>
+
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+     <!-- Javascript files-->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+     <script src="../../js/bootstrap.min.js"> </script>
+     <script src="../../js/jquery.cookie.js"> </script>
+     <script src="../../js/ekko-lightbox.js"></script>
+     <script src="../../js/jquery.scrollTo.min.js"></script>
+     <script src="../../js/masonry.pkgd.min.js"></script>
+     <script src="../../js/imagesloaded.pkgd.min.js"></script>
+     <script src="../../js/owl.carousel.min.js"></script>
+     <script src="../../js/front.js"></script>
+     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID.-->
+     <!---->
+       <script>
+         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ 
+         ga('create', 'UA-16269277-1', 'auto');
+         ga('send', 'pageview');
+ 
+       </script>
+   </body>
+ </html>
