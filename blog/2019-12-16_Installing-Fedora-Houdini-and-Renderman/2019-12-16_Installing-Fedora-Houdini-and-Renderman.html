@@ -70,32 +70,32 @@
                    <h2 class="blogtitle">Installing Fedora Houdini and Renderman</h2>
                    <p class="blogdate">Posted on 2019-12-16</p> 
                    <h2>Installing Fedora Houdini and Renderman</h2>
-<p>This is a guide on setting up a system with Fedora, Houdini and Renderman. There were a few obstacles along the way and hopefully this can help anyone who might want to do the same thing. You may not have the same issues I did, but I had to do some extensive googling to find the answers to issues so hope this helps!</p>
+<p> This is a guide on setting up a system with Fedora, Houdini and Renderman. There were a few obstacles along the way and hopefully this can help anyone who might want to do the same thing. You may not have the same issues I did, but I had to do some extensive googling to find the answers to issues so hope this helps!</p>
 <h4>Installing Fedora with Optimus</h4>
-<p>Installed the vanilla Fedora 31 Workstation with GNOME. My laptop is an NVIDIA Optimus machine, and this has support out of the box once you install the proprietory NVIDIA drivers. It did not boot up initially though when trying to run the live USB; this is common with Optimus setups.</p>
-<p>When booting, in the GRUB menu press <code>e</code> and add <code>nouveau.modeset=0</code> to the bootup parameters. Put it just before the word <code>quiet</code>, not at the end of it all.</p>
-<p>Once you're in Fedora, install the Free and Nonfree repos from [<a href="https://rpmfusion.org">https://rpmfusion.org</a>] then follow the guide <a href="https://rpmfusion.org/Howto/Optimus">here</a> to get Optimus working.</p>
-<p>Check it's all good with <code>__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia glxinfo | grep vendor</code>. You'll need to start Houdini with this command to use the NVIDIA card, so wrap it up into an alias or bash script.</p>
+<p> Installed the vanilla Fedora 31 Workstation with GNOME. My laptop is an NVIDIA Optimus machine, and this has support out of the box once you install the proprietory NVIDIA drivers. It did not boot up initially though when trying to run the live USB; this is common with Optimus setups.</p>
+<p> When booting, in the GRUB menu press <code>e</code> and add <code>nouveau.modeset=0</code> to the bootup parameters. Put it just before the word <code>quiet</code>, not at the end of it all.</p>
+<p> Once you're in Fedora, install the Free and Nonfree repos from [<a href="https://rpmfusion.org">https://rpmfusion.org</a>] then follow the guide <a href="https://rpmfusion.org/Howto/Optimus">here</a> to get Optimus working.</p>
+<p> Check it's all good with <code>__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia glxinfo | grep vendor</code>. You'll need to start Houdini with this command to use the NVIDIA card, so wrap it up into an alias or bash script.</p>
 <h4>Installing Houdini</h4>
-<p>Once that's done, you can move on to installing Houdini. Grab the download, install as you would in the usual way. I had Houdini refusing to start because I was missing a couple of shared libraries, specifically <code>libnsl</code> and <code>libGLU</code>. I found and installed both of these libraries using the package manager. If you have anything else missing for some reason, you can probably find and install them using DNF.</p>
-<p>I found that the license server service <code>sesinetd</code> was failing to start on boot. This is because of SELinux and the default security setup. The way that I got this working was to install a package called <code>setroubleshoot</code>. Once you have this installed, when you reboot on GNOME it'll pop up with an alert saying that the service <code>sesinetd</code> could not be started. It'll also give you the commands to fix this, it looks something like this (yours could be different so check the output rather than copy/pasting):</p>
+<p> Once that's done, you can move on to installing Houdini. Grab the download, install as you would in the usual way. I had Houdini refusing to start because I was missing a couple of shared libraries, specifically <code>libnsl</code> and <code>libGLU</code>. I found and installed both of these libraries using the package manager. If you have anything else missing for some reason, you can probably find and install them using DNF.</p>
+<p> I found that the license server service <code>sesinetd</code> was failing to start on boot. This is because of SELinux and the default security setup. The way that I got this working was to install a package called <code>setroubleshoot</code>. Once you have this installed, when you reboot on GNOME it'll pop up with an alert saying that the service <code>sesinetd</code> could not be started. It'll also give you the commands to fix this, it looks something like this (yours could be different so check the output rather than copy/pasting):</p>
 <pre><code>  ausearch -c 'sesinetd' --raw | audit2allow -M my-sesinetd
   semodule -X 300 -i my-sesinetd.pp
 </code></pre>
-<p>Make sure to run these as <code>sudo</code> and with the first command, you'll need to put <code>sudo</code> after the pipe (|) as well as <code>audit2allow</code> wants to run as <code>sudo</code> too.</p>
+<p> Make sure to run these as <code>sudo</code> and with the first command, you'll need to put <code>sudo</code> after the pipe (|) as well as <code>audit2allow</code> wants to run as <code>sudo</code> too.</p>
 <h4>Installing Renderman</h4>
-<p>To install Renderman NC, you need to download their installer. I had trouble running their installer to start with; Fedora will install it for you then you can then find it in <code>/opt/pixar</code> which is not immediately obvious.</p>
-<p>When trying to run <code>RenderManInstaller</code>, it would crash with <code>Segmentation Fault</code>. Searchign the forums, I found a thread that mentions it uses a version of openssl that isn't installed by default. Fix this by installing the <code>compat-openssl10-devel</code> package using DNF. You can then proceed to install Renderman NC for your machine.</p>
-<p>Once you have installed Renderman NC, you'll need to edit your <code>houdini.env</code> file which you can find usually in <code>~/houdini##.#</code>. Add these lines to the file:</p>
+<p> To install Renderman NC, you need to download their installer. I had trouble running their installer to start with; Fedora will install it for you then you can then find it in <code>/opt/pixar</code> which is not immediately obvious.</p>
+<p> When trying to run <code>RenderManInstaller</code>, it would crash with <code>Segmentation Fault</code>. Searchign the forums, I found a thread that mentions it uses a version of openssl that isn't installed by default. Fix this by installing the <code>compat-openssl10-devel</code> package using DNF. You can then proceed to install Renderman NC for your machine.</p>
+<p> Once you have installed Renderman NC, you'll need to edit your <code>houdini.env</code> file which you can find usually in <code>~/houdini##.#</code>. Add these lines to the file:</p>
 <pre><code>  # RENDERMAN ENV VARIABLES
   RMANTREE=/opt/pixar/RenderManProServer-23.0
   RFHTREE=/opt/pixar/RenderManForHoudini-23.0
   HOUDINI_PATH=$RFHTREE/18.0:&amp;
 </code></pre>
-<p>If all went well, you can run Houdini and see Renderman is installed. In my case, when I tried to drop down a ris ROP and render something I got another error message about a missing library called <code>libtinfo</code>. To install this library, I had to install a package called <code>ncurses-compat-libs</code> from DNF.</p>
-<p>After this, I was able to load Houdini and Renderman. I hope this helps anyone out there who might have had issues like I did!</p>
-<p>Carlo</p>
-<p>&lt;/div&gt;</p>
+<p> If all went well, you can run Houdini and see Renderman is installed. In my case, when I tried to drop down a ris ROP and render something I got another error message about a missing library called <code>libtinfo</code>. To install this library, I had to install a package called <code>ncurses-compat-libs</code> from DNF.</p>
+<p> After this, I was able to load Houdini and Renderman. I hope this helps anyone out there who might have had issues like I did!</p>
+<p> Carlo</p>
+<p> </div></p>
 
                  </div>
                </div>
