@@ -69,8 +69,7 @@
                  <div class="content-column-content">
                    <h2 class="blogtitle">Installing Fedora Houdini and Renderman</h2>
                    <p class="blogdate">Posted on 2019-12-16</p> 
-                   <h2>Installing Fedora Houdini and Renderman</h2>
-<p> This is a guide on setting up a system with Fedora, Houdini and Renderman. There were a few obstacles along the way and hopefully this can help anyone who might want to do the same thing. You may not have the same issues I did, but I had to do some extensive googling to find the answers to issues so hope this helps!</p>
+                   <p>This is a guide on setting up a system with Fedora, Houdini and Renderman. There were a few obstacles along the way and hopefully this can help anyone who might want to do the same thing. You may not have the same issues I did, but I had to do some extensive googling to find the answers to issues so hope this helps!</p>
 <h4>Installing Fedora with Optimus</h4>
 <p> Installed the vanilla Fedora 31 Workstation with GNOME. My laptop is an NVIDIA Optimus machine, and this has support out of the box once you install the proprietory NVIDIA drivers. It did not boot up initially though when trying to run the live USB; this is common with Optimus setups.</p>
 <p> When booting, in the GRUB menu press <code>e</code> and add <code>nouveau.modeset=0</code> to the bootup parameters. Put it just before the word <code>quiet</code>, not at the end of it all.</p>
