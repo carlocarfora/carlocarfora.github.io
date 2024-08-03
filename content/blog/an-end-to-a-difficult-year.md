@@ -7,14 +7,14 @@ date = 2020-12-26
   toc = false
 +++
 
-
 Another year, another complete lack of posts on here.
 
 I could say it's been 2020, that it's been a difficult year and with everything happening in the world currently I've been feeling creatively empty... and while those things are true it's also very true that I've just not given this the attention I would like to.
 
 With a new laptop (oh hello Pixelbook and Chrome OS) that unchains me from the desk, there's some renewed hope that this blog can be updated more regularly. Only time can tell!
 
-The Year In Brief
+### The Year In Brief
+
 In previous posts at the end/start of a new year, looking back at the year has become something of a tradition. So, what has happened this year of note?
 
 Being promoted to Lighting and Rendering Supervisor at The Mill LDN has definitely been one of the career highlights this year, it's been a role I've really enjoyed finding my feet in.
@@ -25,7 +25,8 @@ Tranisitioning to working from home in our industry has been challenging for a l
 
 The challenges of this year meant a quiet first half and insanely busy second half. Unfortunately, with companies having had to make the horrible decision of letting staff go this has meant that teams are smaller and having to work harder to keep up the workload. Burnout, fatigue and feeling overworked are things I've heard personally a lot this year.
 
-Looking Ahead
+### Looking Ahead
+
 While currently enjoying being switched off, it's nice to have a moment to look ahead at what next year can hold.
 
 I'm personally excited to continue pushing forward with Solaris and USD, to try and find a workflow that works for us as a studio. It's still an ongoing process but it's looking extremely positive with Arnold and Solaris in tests so far.
@@ -35,5 +36,3 @@ Realtime has made a huge impact this year, fingers crossed I can find myself on 
 Continuing to learn is always something I try to do, this year has felt like a refinement on existing knowledge so I'm keen to pick up something new next year!
 
 Here's to seeing the back of a tremendously tough year and hopefully soon the start of a new one with brighter prospects for the world over.
-
-Carlo

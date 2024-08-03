@@ -14,5 +14,3 @@ Along with a new look, after almost 4 1/2 incredible years at The Mill I have ma
 I learnt everything I know about VFX from my time at The Mill and am indebted to everyone there who I’ve worked with and learnt from. Even as the pandemic changed the nature of working The Mill has been nothing short of an incredible place to work and have fun while doing so.
 
 All good things must come to an end though, and I’m beyond excited to continue working as Lighting Supervisor in a new environment with fresh challenges and faces!
-
-Carlo

@@ -23,11 +23,14 @@ external_links_target_blank = true
 [extra]
 # Put all your custom variables here
 list_pages = false
+author = "Carlo"
+display_author = true
 
 header_nav = [
   { url = "/", name_en = "/home/" },
   { url = "/work", name_en = "/work/"},
-  { url = "/about", name_en = "/about/"},
+  { url = "/play", name_en = "/play/"},
+  { url = "/me", name_en = "/me/"},
   { url = "/blog", name_en = "/blog/"}
 ]
 
