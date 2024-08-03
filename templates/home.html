@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block content %}
+{{ section.content | safe }}
+
+<h3>Latest Work</h3>
+{% set work_section = get_section(path="work/_index.md") %}
+{% for posts in work_section.pages %}
+     {% if loop.index <= 1 %}
+     <ul>
+	     <b>{{ posts.title }}</b> </br>
+
+     {{ posts.content | safe}}
+     <a href="{{ posts.permalink }}#continue-reading">Continue Reading</a>.
+     </ul>
+     {% endif %}
+{% endfor %}
+
+<h3>Latest Blog Post</h3>
+{% set blog_section = get_section(path="blog/_index.md") %}
+{% for posts in blog_section.pages %}
+     {% if loop.index <= 1 %}
+     <ul>
+	     <li><b>{{ posts.title }}</b></li>
+	     <li>{{ posts.date }}</li>
+
+     		<li>{{ posts.summary | safe}}</li>
+    <li> <a href="{{ posts.permalink }}#continue-reading">Continue Reading</a>.</li>
+     </ul>
+     {% endif %}
+{% endfor %}
+
+<h3>Online Links</h3>
+<p>Stay connected with me on the following:</p>
+<ul>
+	<li><a href="{{ section.extra.linkedin }}" target="_blank">LinkedIn</a></li>
+	<li><a href="{{ section.extra.github }}" target="_blank">Github</a></li>
+	<li><a href="{{ section.extra.x }}" target="_blank">X</a></li>
+</ul>
+
+
+{% if config.extra.list_pages %}
+
+{% if paginator %}
+{% set pages = paginator.pages %}
+{% else %}
+{% set pages = section.pages %}
+{% endif %}
+
+<ul class="titleList">
+{% for page in pages %}
+  <li>
+    <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
+    <br />
+    {{ page.description }}
+  </li>
+{% endfor %}
+</ul>
+
+{% if paginator %}
+<div class="metaData">{% if paginator.previous %}<a href="{{ paginator.first }}">⥶</a> &nbsp <a href="{{ paginator.previous }}"><</a>{% endif %} &nbsp {{ paginator.current_index }} / {{ paginator.number_pagers }} &nbsp {% if paginator.next %}<a href="{{ paginator.next }}">></a> &nbsp <a href="{{ paginator.last }}">⥸</a>{% endif %}</div>
+{% endif %}
+
+{% endif %}
+{% endblock content %}
