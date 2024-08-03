@@ -9,7 +9,7 @@ date = 2024-08-03
 
 Well, 2 years later and things come full circle! Just putting the finishing touches on a website makeover and hopefully making it something a bit less sterile.
 
-<!--more-->
+<!-- more -->
 
 I got tired of using Squarespace as my web host, paying a yearly fee for something I barely touch just didn't sit right with me and so I turned to what I knew... Static Site Generators. 
 
