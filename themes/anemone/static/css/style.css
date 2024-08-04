@@ -99,6 +99,10 @@
   float: left
 }
 
+iframe, img, video {
+  max-width: 100%;
+}
+
 /* shortcodes css */
 .webring {
   margin: .375rem;

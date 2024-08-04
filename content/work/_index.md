@@ -4,14 +4,20 @@ template = "work.html"
 sort_by = "weight"
 
 [extra]
-  toc = true
+  toc = false
 +++
 
-This is a one-page professional summary. It includes an up to date list of projects I've been a part of and a description of my professional skill set in VFX.
+This is a one-page professional summary. It includes an up to date list of projects I've been a part of and a description of my professional skill set in VFX. 
+
+#### Showreel
+
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/353151822?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Carlo Carfora Reel 2019"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+
+My most current showreel from 2019.
 
 #### About
 
-I have over 14 years of experience spanning artist to CG Supervisor. Currently I am Lighting Supervisor at [Untold Studios](https://www.untoldstudios.tv).
+I have over 14 years of experience spanning artist roles to supervision. Currently I am Lighting Supervisor at [Untold Studios](https://www.untoldstudios.tv).
 
 Comfortable in creative, technical and leadership roles I find great joy problem solving in production environments.
 
@@ -32,7 +38,7 @@ Familiar with the VFX production pipeline my strengths lie in Lighting, Renderin
 - VEX
 - Rust (beginner)
 
-#### Projects
+#### Portfolio
 
-A chronological list of projects I've worked on professionally over the past years.
+A chronological list of projects I've worked on professionally over the past years. 
 

@@ -10,17 +10,6 @@
   <li><a href="{{ section.extra.x }}" target="_blank">X</a></li>
 </ul>
 
-<h3>Latest Work</h3>
-{% set work_section = get_section(path="work/_index.md") %}
-{% for posts in work_section.pages %}
-  {% if loop.index <= 1 %} 
-    <ul>
-      <h4>{{ posts.title }}</h4>
-      {{ posts.content | safe}}
-    </ul>
-  {% endif %}
-{% endfor %}
-
 <h3>Latest Blog Post</h3>
 {% set blog_section = get_section(path="blog/_index.md") %}
 {% for posts in blog_section.pages %}
@@ -35,7 +24,16 @@
      {% endif %}
 {% endfor %}
 
-
+<h3>Latest Work</h3>
+{% set work_section = get_section(path="work/_index.md") %}
+{% for posts in work_section.pages %}
+  {% if loop.index <= 1 %} 
+    <ul>
+      <li><b>{{ posts.title }}</b></li>
+      {{ posts.content | safe}}
+    </ul>
+  {% endif %}
+{% endfor %}
 
 {% if config.extra.list_pages %}
 
