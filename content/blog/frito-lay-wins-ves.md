@@ -1,7 +1,6 @@
 +++
 title = "Frito-Lay wins VES"
 date = 2023-03-12
-
 [taxonomies]
   tags = ["untold"]
 [extra]

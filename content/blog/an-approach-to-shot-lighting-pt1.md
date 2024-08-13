@@ -1,7 +1,6 @@
 +++
 title = "An approach to shot lighting in Houdini pt.1"
 date = 2022-05-11
-
 [taxonomies]
   tags = ["houdini", "lighting", "arnold", "workflow"]
 [extra]
