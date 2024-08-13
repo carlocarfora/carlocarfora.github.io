@@ -11,14 +11,6 @@
 {% set pages = section.pages %}
 {% endif %}
 
-<ul class="title-list">
-{% for page in pages %}
-  <li>
-    <a href="{{ page.permalink | safe }}">{{page.date}} - {{ page.title }}</a>
-  </li>
-{% endfor %}
-</ul>
-
 {% if paginator %}
 <div class="accent-data">{% if paginator.previous %}<a href="{{ paginator.first }}">⥶</a> &nbsp <a href="{{ paginator.previous }}"><</a>{% endif %} &nbsp {{ paginator.current_index }} / {{ paginator.number_pagers }} &nbsp {% if paginator.next %}<a href="{{ paginator.next }}">></a> &nbsp <a href="{{ paginator.last }}">⥸</a>{% endif %}</div>
 {% endif %}
