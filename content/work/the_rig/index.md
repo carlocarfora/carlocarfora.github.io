@@ -1,7 +1,7 @@
 +++
 title = "The Rig"
 template = "project.html"
-weight = 7
+weight = 27
 +++
 
 Role: Lighting Artist  

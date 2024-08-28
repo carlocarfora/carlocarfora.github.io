@@ -1,7 +1,7 @@
 +++
 title = "Cowboy Bebop"
 template = "project.html"
-weight = 10
+weight = 30
 +++
 
 Role: Lighting Artist  

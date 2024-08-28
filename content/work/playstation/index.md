@@ -1,7 +1,7 @@
 +++
 title = "Playstation Extraordinary Drama"
 template = "project.html"
-weight = 1
+weight = 21
 +++
 
 Role: Lighting Artist  

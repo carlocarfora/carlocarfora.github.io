@@ -1,7 +1,7 @@
 +++
 title = "Frito Lay - Push It"
 template = "project.html"
-weight = 9
+weight = 29
 +++
 
 Role: Lighting Artist  

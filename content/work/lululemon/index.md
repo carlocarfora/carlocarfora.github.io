@@ -1,7 +1,7 @@
 +++
 title = "Lululemon - Feel"
 template = "project.html"
-weight = 11
+weight = 31
 +++
 
 Role: Lighting Supervisor  

@@ -1,7 +1,7 @@
 +++
 title = "Tetley - Now We're Talking"
 template = "project.html"
-weight = 19
+weight = 38
 +++
 
 Role: Lighting Artist  

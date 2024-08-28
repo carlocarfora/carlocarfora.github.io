@@ -1,7 +1,7 @@
 +++
 title = "Amazon Pompeii"
 template = "project.html"
-weight = 12
+weight = 32
 +++
 
 Role: Lighting Artist  

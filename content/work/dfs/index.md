@@ -1,7 +1,7 @@
 +++
 title = "DFS"
 template = "project.html"
-weight = 2
+weight = 22
 +++
 
 Role: Lighting Artist  

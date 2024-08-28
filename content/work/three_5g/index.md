@@ -1,7 +1,7 @@
 +++
 title = "Three 5G Future"
 template = "project.html"
-weight = 17
+weight = 37
 +++
 
 Role: Lighting Artist  

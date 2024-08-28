@@ -1,7 +1,7 @@
 +++
 title = "Bwin - Club Almighty"
 template = "project.html"
-weight = 20
+weight = 39
 +++
 
 Role: Lighting Artist  

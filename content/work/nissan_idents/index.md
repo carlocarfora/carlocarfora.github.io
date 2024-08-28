@@ -1,7 +1,7 @@
 +++
 title = "Nissan Idents"
 template = "project.html"
-weight = 25
+weight = 45
 +++
 
 Role: Lighting / FX Artist  

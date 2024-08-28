@@ -1,7 +1,7 @@
 +++
 title = "Hyundai - On To Better"
 template = "project.html"
-weight = 15
+weight = 35
 +++
 
 Role: Lighting Artist  

@@ -1,7 +1,7 @@
 +++
 title = "Chemical Brothers - Free Yourself"
 template = "project.html"
-weight = 23
+weight = 43
 +++
 
 Role: Lighting Artist  

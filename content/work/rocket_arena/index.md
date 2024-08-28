@@ -1,7 +1,7 @@
 +++
 title = "Rocket Arena"
 template = "project.html"
-weight = 16
+weight = 36
 +++
 
 Role: Lighting Artist  

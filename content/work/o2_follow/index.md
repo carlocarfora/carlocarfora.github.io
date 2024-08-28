@@ -1,7 +1,7 @@
 +++
 title = "O2 - Follow The Rabbit"
 template = "project.html"
-weight = 28
+weight = 48
 +++
 
 Role: 3D Generalist  

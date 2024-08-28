@@ -1,7 +1,7 @@
 +++
 title = "Aviva - Puzzle"
 template = "project.html"
-weight = 6
+weight = 26
 +++
 
 Role: Lighting Artist  

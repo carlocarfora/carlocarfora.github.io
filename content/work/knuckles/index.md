@@ -1,7 +1,7 @@
 +++
 title = "Knuckles"
 template = "project.html"
-weight = 0
+weight = 20
 +++
 
 Role: Lighting Supervisor  

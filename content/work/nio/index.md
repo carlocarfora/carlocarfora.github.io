@@ -1,7 +1,7 @@
 +++
 title = "NIO ES7 - Far Beyond"
 template = "project.html"
-weight = 8
+weight = 28
 +++
 
 Role: Lighting Artist  

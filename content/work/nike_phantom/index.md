@@ -1,7 +1,7 @@
 +++
 title = "Nike - Awaken The Phantom"
 template = "project.html"
-weight = 24
+weight = 44
 +++
 
 Role: Lighting Artist  

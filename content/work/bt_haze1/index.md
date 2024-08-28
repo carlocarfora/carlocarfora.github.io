@@ -1,7 +1,7 @@
 +++
 title = "BT - Purple Haze"
 template = "project.html"
-weight = 22
+weight = 42
 +++
 
 Role: FX Artist  

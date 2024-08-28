@@ -1,7 +1,7 @@
 +++
 title = "Chemical Brothers - Live Again"
 template = "project.html"
-weight = 3
+weight = 23
 +++
 
 Role: Lighting Artist  

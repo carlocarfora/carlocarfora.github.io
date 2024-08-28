@@ -1,7 +1,7 @@
 +++
 title = "Showreel 2017"
 template = "project.html"
-weight = 30
+weight = 50
 +++
 
 Role: 3D / FX Artist  

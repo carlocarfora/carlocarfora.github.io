@@ -1,7 +1,7 @@
 +++
 title = "Coors - Fresh Ride"
 template = "project.html"
-weight = 4
+weight = 24
 +++
 
 Role: Lighting Artist  
