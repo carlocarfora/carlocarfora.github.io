@@ -21,6 +21,27 @@ I have over 14 years of experience spanning artist roles to supervision. Current
 
 Comfortable in creative, technical and leadership roles I find great joy problem solving in production environments.
 
+#### Experience
+
+**Untold Studios**  
+Lighting Supervisor  
+*Dec 2021 - Present*
+
+**The Mill**  
+Lighting & Rendering Supervisor  
+*Mar 2020 - Dec 2021*
+
+3D Generalist  
+*Aug 2017 - Mar 2020*
+
+**Last Pixel**  
+Senior 3D Generalist  
+*Oct 2012 - May 2017*
+
+**AVR London**  
+Architectural Visualiser  
+*Jun 2011 - Sep 2012*
+
 #### Skills
 
 Familiar with the VFX production pipeline my strengths lie in Lighting, Rendering, TD tasks and establishing/improving workflows. Experienced with both Linux and Windows operating systems. Good working knowledge of using USD in production.

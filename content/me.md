@@ -21,10 +21,9 @@ For all things personal, I have a Razer Blade Stealth 13" running my preferred O
 #### Things I do outside of work
 
 - Try to learn Italian
-- Writing (very slowly) a toy raytracer
 - Play guitar
 - Take photos
 - Explore new places
-- Sneak in some gaming when I can (mostly handheld these days on the Switch/Steam Deck)
+- Sneak in some gaming when I can (mostly handheld these days on the Steam Deck)
 - Read the odd book
 - Exercise to offset all the sitting down! I do [this kettlebell workout](https://www.strongfirst.com/shop/books/simple-sinister-book/) most days and it's helped me to stay feeling physically good.
