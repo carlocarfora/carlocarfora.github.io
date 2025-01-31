@@ -107,3 +107,47 @@ iframe, img, video {
 .webring {
   margin: .375rem;
 }
+
+/* gallery css */
+
+.image-container {
+  position: relative;
+  display: inline-block; /* or block depending on your layout */
+}
+
+.image-container img {
+  width: 100%; /* Makes the image responsive */
+  height: auto;
+}
+
+.overlay-text {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: white;
+  font-family: inherit;  /* Inherit font from parent (usually body) */
+  font-size: 18px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  background-color: #222529;
+}
+
+.no-hover:hover {
+  background-color: transparent;
+  color: inherit;
+}
+
+.image-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Creates two columns */
+  gap: 5px; /* Space between columns */
+}
+
+/* Show overlay when hovering over the image container */
+.image-container:hover .overlay-text{
+  opacity: 1;  /* Fade in the overlay */
+}
+
+/* Hover effect on the text inside the overlay */
+.image-container:hover .overlay-text {
+  color: #e2aea2;  /* Change text color on hover */
+}

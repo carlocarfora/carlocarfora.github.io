@@ -37,16 +37,17 @@
 {% set pages = section.pages %}
 {% endif %}
 
-<div>
+<div class="image-gallery">
 {% set section = get_section(path="work/_index.md") %}
     {% for page in section.pages %}
-	<ul>
-		<li>
-		<a href="{{ page.permalink | safe }}">
-			{{page.title}}
+		<a href="{{ page.permalink | safe }}" class="no-hover">
+      <div class="image-container">
+        {% set image_path = page.path ~ config.extra.thumb %}
+        {% set image = resize_image(path=image_path, width=800, height=335, op='fill') %}
+        <img src="{{image.url}}" alt="Thumbnail">
+        <div class="overlay-text">{{ page.title }}</div>
+      </div>
 		</a>
-		</li>	
-	</ul>
 	{%- endfor %}
 </div>
 

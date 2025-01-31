@@ -32,15 +32,6 @@
 
 {{ page.content | safe }}
 
-<div>
-{% for asset in page.assets -%}
-  {%- if asset is matching("[.](jpg|png)$") -%}
-    {% set image = resize_image(path=asset, width=240, height=180) %}
-      <img src="{{ image.url }}" />
-  {%- endif %}
-{%- endfor %}
-</div>
-
 <p class="tags-data">
 {% if page.taxonomies.tags %}
 {% for tag in page.taxonomies.tags %}

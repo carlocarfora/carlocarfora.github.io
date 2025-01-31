@@ -25,6 +25,7 @@ external_links_target_blank = true
 list_pages = false
 author = "Carlo"
 display_author = true
+thumb = "thumb.jpg"
 
 header_nav = [
   { url = "/", name_en = "/home/" },
