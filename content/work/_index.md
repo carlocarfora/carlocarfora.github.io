@@ -7,7 +7,7 @@ sort_by = "weight"
   toc = false
 +++
 
-This is a one-page professional summary. It includes an up to date list of projects I've been a part of and a description of my professional skill set in VFX. 
+This is a one-page professional summary. It includes an up to date [list of projects](#portfolio) I've been a part of and a description of my professional skill set in VFX. 
 
 #### Showreel
 

@@ -6,6 +6,7 @@ Here you'll find a random assortment of content from CG related to anything hobb
 
 #### CG
 
+- [Houdini Notes](https://github.com/carlocarfora/houdini-notes/wiki) - Over the years I've put some of my notes into a "wiki", it's not been updated in a while as much and probably a bit outdated in places but I still find it useful to refer to when doing certain things.
 
 
 #### Language
