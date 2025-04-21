@@ -7,6 +7,7 @@ Here you'll find a random assortment of content from CG related to anything hobb
 #### CG
 
 - [Houdini Notes](https://github.com/carlocarfora/houdini-notes/wiki) - Over the years I've put some of my notes into a "wiki", it's not been updated in a while as much and probably a bit outdated in places but I still find it useful to refer to when doing certain things.
+- [Arnold Log Viewer](https://github.com/carlocarfora/arnold-log-viewer) - Using Streamlit I wanted to create a simple log viewer for Arnold. Designed to be simple to use and display only a subset of information that is useful for 80% - 90% of cases where you want to debug render logs.
 
 
 #### Language
