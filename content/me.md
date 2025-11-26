@@ -14,7 +14,7 @@ I've set this website up using [Zola](https://www.getzola.org/) and an awesome t
 
 
 #### Software / Hardware
-I use a Macbook Pro M1 for all things professional. It's an amazing laptop and I wouldn't choose anything else given the choice to be honest now (except for a new model I guess!)
+I use a 13" Macbook Air M4 for all things professional, small and feels as snappy as the 16" M1 Pro I used to use (although I do miss the screen size sometimes!).
 
 For all things personal, I have a Razer Blade Stealth 13" running my preferred OS which is Linux. I use [Pop!_OS](https://pop.system76.com), out of the box most things "just work" and together they strike a good balance between portability and usability. 
 
@@ -24,6 +24,6 @@ For all things personal, I have a Razer Blade Stealth 13" running my preferred O
 - Play guitar
 - Take photos
 - Explore new places
-- Sneak in some gaming when I can (mostly handheld these days on the Steam Deck)
+- Sneak in some gaming when I can ((mostly handheld these days on the Steam Deck))
 - Read the odd book
-- Exercise to offset all the sitting down! I do [this kettlebell workout](https://www.strongfirst.com/shop/books/simple-sinister-book/) most days and it's helped me to stay feeling physically good.
+- Exercise to offset all the sitting down! I do [this kettlebell workout](https://www.strongfirst.com/shop/books/simple-sinister-book/) most days and it's helped me to stay in shape.

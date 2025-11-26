@@ -17,15 +17,18 @@ My most current showreel from 2019.
 
 #### About
 
-I have over 14 years of experience spanning artist roles to supervision. Currently I am Lighting Supervisor at [Untold Studios](https://www.untoldstudios.tv).
+I have over 14 years of experience spanning artist roles to supervision. Currently I am Head of Lighting at [Untold Studios](https://www.untoldstudios.tv).
 
 Comfortable in creative, technical and leadership roles I find great joy problem solving in production environments.
 
 #### Experience
 
 **Untold Studios**  
+Head of Lighting  
+*July 2025 - Present*
+
 Lighting Supervisor  
-*Dec 2021 - Present*
+*Dec 2021 - July 2025*
 
 **The Mill**  
 Lighting & Rendering Supervisor  
