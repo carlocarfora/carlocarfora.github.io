@@ -169,19 +169,3 @@ iframe, img, video {
 }
 
 
-/* GitHub stats widget theme switching */
-.github-stats-light {
-  display: block;
-}
-
-.github-stats-dark {
-  display: none;
-}
-
-[data-theme="dark"] .github-stats-light {
-  display: none;
-}
-
-[data-theme="dark"] .github-stats-dark {
-  display: block;
-}
