@@ -6,6 +6,17 @@
 {% endif %}
 {% if config.extra.header_nav %}
   <nav id="nav-bar">
+    <div id="social-icons">
+      <a href="https://www.linkedin.com/in/carlocarfora" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <svg class="icons"><use href="{{ get_url(path='/icons.svg#linkedin', trailing_slash=false) | safe }}"></use></svg>
+      </a>
+      <a href="https://github.com/carlocarfora" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <svg class="icons"><use href="{{ get_url(path='/icons.svg#github', trailing_slash=false) | safe }}"></use></svg>
+      </a>
+      <a href="https://x.com/carlo_carfora" target="_blank" rel="noopener noreferrer" aria-label="X">
+        <svg class="icons"><use href="{{ get_url(path='/icons.svg#x', trailing_slash=false) | safe }}"></use></svg>
+      </a>
+    </div>
     {% for nav_item in config.extra.header_nav %}
       <a href="{{ nav_item.url }}" class="{% if nav_item.url == current_url %}active{% endif %}">
         {% set language_key = 'name_' ~ current_lang %}
