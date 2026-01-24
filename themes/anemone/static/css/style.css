@@ -25,6 +25,22 @@
   align-items: center;
 }
 
+/* GitHub chart styling */
+.github-chart {
+  width: 100%;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+}
+
+.github-chart-link {
+  display: block;
+}
+
+.github-chart-link:hover {
+  background-color: transparent;
+}
+
 #footer-container {
   display: flex;
   flex-wrap: wrap;
