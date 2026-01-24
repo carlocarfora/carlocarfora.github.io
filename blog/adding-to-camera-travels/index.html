@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<meta name="robots" content="index, follow">
+
+
+
+
+
+
+
+
+
+
+
+
+<title>Adding to camera.travels</title>
+
+
+
+<meta name="title" content="Adding to camera.travels">
+
+
+<meta name="author" content="Carlo">
+
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://carlocarfora.co.uk/blog/adding-to-camera-travels/">
+
+<meta property="og:site_name" content="">
+
+
+<meta property="og:title" content="Adding to camera.travels">
+
+
+
+
+
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://carlocarfora.co.uk/blog/adding-to-camera-travels/">
+
+<meta property="twitter:title" content="Adding to camera.travels">
+
+
+
+
+<link rel="canonical" href="https://carlocarfora.co.uk/blog/adding-to-camera-travels/">
+
+
+
+
+<link rel="stylesheet" type="text/css" href="https://speyll.github.io/suCSS/reset-min.css"/>
+<link rel="stylesheet" type="text/css" href="https://speyll.github.io/suCSS/suCSS-min.css"/>
+<link rel="stylesheet" type="text/css" href="https://carlocarfora.co.uk/css/style.css"/>
+
+<script src="https://carlocarfora.co.uk/js/script.js" defer></script>
+
+
+</head>
+<body>
+      <header>
+          
+
+  
+
+
+  <nav id="nav-bar">
+    <div id="social-icons">
+      <a href="https://www.linkedin.com/in/carlocarfora" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <svg class="icons"><use href="https://carlocarfora.co.uk/icons.svg#linkedin"></use></svg>
+      </a>
+      <a href="https://github.com/carlocarfora" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <svg class="icons"><use href="https://carlocarfora.co.uk/icons.svg#github"></use></svg>
+      </a>
+      <a href="https://x.com/carlo_carfora" target="_blank" rel="noopener noreferrer" aria-label="X">
+        <svg class="icons"><use href="https://carlocarfora.co.uk/icons.svg#x"></use></svg>
+      </a>
+    </div>
+    <div id="nav-links">
+      
+        <a href="&#x2F;" class="">
+          
+          &#x2F;home&#x2F;
+        </a>
+      
+        <a href="&#x2F;work" class="">
+          
+          &#x2F;work&#x2F;
+        </a>
+      
+        <a href="&#x2F;play" class="">
+          
+          &#x2F;play&#x2F;
+        </a>
+      
+        <a href="&#x2F;me" class="">
+          
+          &#x2F;me&#x2F;
+        </a>
+      
+        <a href="&#x2F;blog" class="">
+          
+          &#x2F;blog&#x2F;
+        </a>
+      
+      <input type="checkbox" id="theme-toggle" style="display: none;">
+      <label for="theme-toggle" id="theme-toggle-label"><svg id="theme-icon" class="icons"><use href="https://carlocarfora.co.uk/icons.svg#lightMode"></use></svg></label>
+      <audio id="theme-sound">
+        <source src="https://carlocarfora.co.uk/click.ogg" type="audio/ogg">
+      </audio>
+    </div>
+  </nav>
+
+
+      </header>
+      <main>
+          
+<div><a href="..">..</a>/<span class="accent-data">adding-to-camera-travels</span></div>
+<time datetime="2025-11-26">Published on: <span class="accent-data">2025-11-26</span></time>
+
+<address rel="author">By <span class="accent-data">Carlo</span></address>
+
+<h1>Adding to camera.travels</h1>
+
+
+
+<p>Just a little update on adding photos to <a rel="noopener" target="_blank" href="https://travels.carlocarfora.co.uk">https://travels.carlocarfora.co.uk</a> which has been fun to customise and devise a workflow for! More details below the line...</p>
+<span id="continue-reading"></span>
+<blockquote>
+<p>Figuring out the workflow is half the fun</p>
+</blockquote>
+<p>So now that I had this test site in place for a while, I've finally come back to it deciding it's time to figure out how the best way to add photos and thoughts to it. </p>
+<p>The first thing I wanted to do was customise the theme a little; it just needed to have my own personal links etc. and so creating a copy of the first theme was the easiest solution.</p>
+<p>Second was making sure I understood the general workflow. The Expose readme file is great at explaining all of this, all I did was make a couple of predefined <code>title</code> and <code>post</code> markdown template files that I can reuse.</p>
+<blockquote>
+<p>Always read the docs</p>
+</blockquote>
+<p>Once I had this, I wanted to go a little further and try to make it so that when I had portrait pictures I could always quickly stitch them together. I came across a neat feature with the Files application in Pop_OS! which is Nautlilus. You can run scripts from a right click menu. I put together (with some quick help from ChatGPT) a script that uses Imagemagick to collage 2 images together. Here it is below:</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#65737e;">#!/bin/bash
+</span><span>
+</span><span style="color:#65737e;"># Require at least two selected files
+</span><span style="color:#b48ead;">if </span><span style="color:#96b5b4;">[ </span><span>$</span><span style="color:#bf616a;"># -lt</span><span> 2 </span><span style="color:#96b5b4;">]</span><span>; </span><span style="color:#b48ead;">then
+</span><span>    </span><span style="color:#bf616a;">zenity --error --text</span><span>=&quot;</span><span style="color:#a3be8c;">Select at least two images.</span><span>&quot;
+</span><span>    </span><span style="color:#96b5b4;">exit</span><span> 1
+</span><span style="color:#b48ead;">fi
+</span><span>
+</span><span style="color:#bf616a;">img1</span><span>=&quot;$</span><span style="color:#bf616a;">1</span><span>&quot;
+</span><span style="color:#bf616a;">img2</span><span>=&quot;$</span><span style="color:#bf616a;">2</span><span>&quot;
+</span><span>
+</span><span style="color:#65737e;"># Extract names before renaming (for output filename)
+</span><span style="color:#bf616a;">base1</span><span>=$</span><span style="color:#a3be8c;">(</span><span style="color:#bf616a;">basename </span><span>&quot;$</span><span style="color:#bf616a;">img1</span><span>&quot;</span><span style="color:#a3be8c;">)
+</span><span style="color:#bf616a;">name1</span><span>=&quot;$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">base1</span><span>%</span><span style="color:#a3be8c;">.</span><span>*</span><span style="color:#a3be8c;">}</span><span>&quot;
+</span><span>
+</span><span style="color:#bf616a;">base2</span><span>=$</span><span style="color:#a3be8c;">(</span><span style="color:#bf616a;">basename </span><span>&quot;$</span><span style="color:#bf616a;">img2</span><span>&quot;</span><span style="color:#a3be8c;">)
+</span><span style="color:#bf616a;">name2</span><span>=&quot;$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">base2</span><span>%</span><span style="color:#a3be8c;">.</span><span>*</span><span style="color:#a3be8c;">}</span><span>&quot;
+</span><span>
+</span><span style="color:#65737e;"># Output directory
+</span><span style="color:#bf616a;">outdir</span><span>=$</span><span style="color:#a3be8c;">(</span><span style="color:#bf616a;">dirname </span><span>&quot;$</span><span style="color:#bf616a;">img1</span><span>&quot;</span><span style="color:#a3be8c;">)
+</span><span>
+</span><span style="color:#65737e;"># Output file
+</span><span style="color:#bf616a;">outfile</span><span>=&quot;$</span><span style="color:#bf616a;">outdir</span><span style="color:#a3be8c;">/</span><span>$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">name1</span><span style="color:#a3be8c;">}-</span><span>$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">name2</span><span style="color:#a3be8c;">}.jpg</span><span>&quot;
+</span><span>
+</span><span style="color:#65737e;"># --- Create combined image BEFORE renaming ---
+</span><span style="color:#bf616a;">convert </span><span>\
+</span><span>    </span><span style="color:#96b5b4;">\( </span><span>&quot;$</span><span style="color:#bf616a;">img1</span><span>&quot;</span><span style="color:#bf616a;"> -resize</span><span> 2448x3264^</span><span style="color:#bf616a;"> -gravity</span><span> center</span><span style="color:#bf616a;"> -extent</span><span> 2448x3264 </span><span style="color:#96b5b4;">\) </span><span>\
+</span><span>    </span><span style="color:#96b5b4;">\( </span><span>&quot;$</span><span style="color:#bf616a;">img2</span><span>&quot;</span><span style="color:#bf616a;"> -resize</span><span> 2448x3264^</span><span style="color:#bf616a;"> -gravity</span><span> center</span><span style="color:#bf616a;"> -extent</span><span> 2448x3264 </span><span style="color:#96b5b4;">\) </span><span>\
+</span><span>    +append &quot;$</span><span style="color:#bf616a;">outfile</span><span>&quot;
+</span><span>
+</span><span style="color:#65737e;"># --- Now rename the originals ---
+</span><span style="color:#bf616a;">mv </span><span>&quot;$</span><span style="color:#bf616a;">img1</span><span>&quot; &quot;$</span><span style="color:#bf616a;">outdir</span><span style="color:#a3be8c;">/_</span><span>$</span><span style="color:#bf616a;">base1</span><span>&quot;
+</span><span style="color:#bf616a;">mv </span><span>&quot;$</span><span style="color:#bf616a;">img2</span><span>&quot; &quot;$</span><span style="color:#bf616a;">outdir</span><span style="color:#a3be8c;">/_</span><span>$</span><span style="color:#bf616a;">base2</span><span>&quot;
+</span><span>
+</span><span style="color:#bf616a;">zenity --info --text</span><span>=&quot;</span><span style="color:#a3be8c;">Created: </span><span>$</span><span style="color:#a3be8c;">(</span><span style="color:#bf616a;">basename </span><span>&quot;$</span><span style="color:#bf616a;">outfile</span><span>&quot;</span><span style="color:#a3be8c;">) and renamed originals.</span><span>&quot;
+</span></code></pre>
+<p>Now I could easily put 2 portrait pics together and not break the flow of the webstie with large images to scroll past (although that can sometimes be an aesthetic choice!). Also learnt about the cool zenity command!</p>
+<p>I also used VS Code's Tasks feature to be able to automatically create an .md file from a selection in the Explorer with the same name as the photo. This is how you add text to a photo, and so this task makes it trivial to add text to a story as you go along. I did this by using a shell script as a Task.</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#65737e;">#!/bin/bash
+</span><span>
+</span><span style="color:#65737e;"># Check argument
+</span><span style="color:#b48ead;">if </span><span style="color:#96b5b4;">[ </span><span style="color:#bf616a;">-z </span><span>&quot;$</span><span style="color:#bf616a;">1</span><span>&quot; </span><span style="color:#96b5b4;">]</span><span>; </span><span style="color:#b48ead;">then
+</span><span>  </span><span style="color:#96b5b4;">echo </span><span>&quot;</span><span style="color:#a3be8c;">Usage: </span><span>$</span><span style="color:#bf616a;">0</span><span style="color:#a3be8c;"> path/to/file</span><span>&quot;
+</span><span>  </span><span style="color:#96b5b4;">exit</span><span> 1
+</span><span style="color:#b48ead;">fi
+</span><span>
+</span><span style="color:#bf616a;">file</span><span>=&quot;$</span><span style="color:#bf616a;">1</span><span>&quot;
+</span><span>
+</span><span style="color:#65737e;"># Check file exists
+</span><span style="color:#b48ead;">if </span><span style="color:#96b5b4;">[ </span><span>! </span><span style="color:#bf616a;">-f </span><span>&quot;$</span><span style="color:#bf616a;">file</span><span>&quot; </span><span style="color:#96b5b4;">]</span><span>; </span><span style="color:#b48ead;">then
+</span><span>  </span><span style="color:#96b5b4;">echo </span><span>&quot;</span><span style="color:#a3be8c;">File not found: </span><span>$</span><span style="color:#bf616a;">file</span><span>&quot;
+</span><span>  </span><span style="color:#96b5b4;">exit</span><span> 1
+</span><span style="color:#b48ead;">fi
+</span><span>
+</span><span style="color:#65737e;"># Directory and base name
+</span><span style="color:#bf616a;">dir</span><span>=$</span><span style="color:#a3be8c;">(</span><span style="color:#bf616a;">dirname </span><span>&quot;$</span><span style="color:#bf616a;">file</span><span>&quot;</span><span style="color:#a3be8c;">)
+</span><span style="color:#bf616a;">base</span><span>=$</span><span style="color:#a3be8c;">(</span><span style="color:#bf616a;">basename </span><span>&quot;$</span><span style="color:#bf616a;">file</span><span>&quot;</span><span style="color:#a3be8c;">)
+</span><span style="color:#bf616a;">name</span><span>=&quot;$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">base</span><span>%</span><span style="color:#a3be8c;">.</span><span>*</span><span style="color:#a3be8c;">}</span><span>&quot;
+</span><span>
+</span><span style="color:#65737e;"># Markdown file path
+</span><span style="color:#bf616a;">md</span><span>=&quot;$</span><span style="color:#bf616a;">dir</span><span style="color:#a3be8c;">/</span><span>$</span><span style="color:#bf616a;">name</span><span style="color:#a3be8c;">.md</span><span>&quot;
+</span><span>
+</span><span style="color:#65737e;"># Default content
+</span><span style="color:#bf616a;">cat </span><span>&gt; &quot;$</span><span style="color:#bf616a;">md</span><span>&quot; &lt;&lt;</span><span style="color:#b48ead;">EOL
+</span><span style="color:#a3be8c;">---
+</span><span style="color:#a3be8c;">top: 80
+</span><span style="color:#a3be8c;">left: 60
+</span><span style="color:#a3be8c;">width: 38
+</span><span style="color:#a3be8c;">height: 20
+</span><span style="color:#a3be8c;">textcolor: #ffffff
+</span><span style="color:#a3be8c;">---
+</span><span style="color:#a3be8c;">&lt;span class=&quot;post_text&quot;&gt;&lt;/span&gt;
+</span><span style="color:#b48ead;">EOL
+</span><span>
+</span><span style="color:#96b5b4;">echo </span><span>&quot;</span><span style="color:#a3be8c;">Created Markdown file: </span><span>$</span><span style="color:#bf616a;">md</span><span>&quot;
+</span></code></pre>
+<p>Finally, if you're wondering what I'm using to actually edit and go through photos I'm using this wonderful fork of RawTherapee called ART. It's pretty much exactly what I've been looking for in a photo editor and you can find it <a rel="noopener" target="_blank" href="https://github.com/artraweditor/ART">here</a>. I can't recommend it enough!</p>
+<p>Still a few more travels to put up as I work my way backwards...</p>
+<p>Carlo</p>
+
+
+<p class="tags-data">
+  
+  
+  <a href="/tags/work">&#47;work&#47;</a>
+  
+  <a href="/tags/life">&#47;life&#47;</a>
+  
+  <a href="/tags/photos">&#47;photos&#47;</a>
+  
+  <a href="/tags/memories">&#47;memories&#47;</a>
+  
+  
+</p>
+
+      </main>
+      <footer>
+          <hr>
+<div id="footer-container">
+  
+  <div>
+    <p>Theme and color theme licensed under <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Licence_MIT">MIT</a>.<br>
+      Built with <a target="_blank" rel="noopener noreferrer" href="https://www.getzola.org">Zola</a> using <a target="_blank" rel="noopener noreferrer" href="https://github.com/Speyll/anemone">anemone</a> theme, <a target="_blank" rel="noopener noreferrer" href="https://speyll.github.io/suCSS/">suCSS</a> framework &amp; <a target="_blank" rel="noopener noreferrer" href="https://github.com/Speyll/veqev">veqev</a>.<br>
+    </p>
+
+  </div>
+  
+</div>
+
+      </footer>
+</body>
+</html>

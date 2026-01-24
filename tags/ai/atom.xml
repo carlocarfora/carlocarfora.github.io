@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title> - AI</title>
+    <link href="https://carlocarfora.co.uk/tags/ai/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://carlocarfora.co.uk"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2026-01-20T00:00:00+00:00</updated>
+    <id>https://carlocarfora.co.uk/tags/ai/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Claude Code After One Week</title>
+        <published>2026-01-20T00:00:00+00:00</published>
+        <updated>2026-01-20T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://carlocarfora.co.uk/blog/claude-code-after-one-week/" type="text/html"/>
+        <id>https://carlocarfora.co.uk/blog/claude-code-after-one-week/</id>
+        
+        <summary type="html">&lt;p&gt;After just over one week of Claud Code I felt compelled to write this blog post because of how much I feel the game has changed for myself since using this.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>The Landscape Has Changed</title>
+        <published>2026-01-13T00:00:00+00:00</published>
+        <updated>2026-01-13T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://carlocarfora.co.uk/blog/the-landscape-has-changed/" type="text/html"/>
+        <id>https://carlocarfora.co.uk/blog/the-landscape-has-changed/</id>
+        
+        <summary type="html">&lt;p&gt;First post of the year! Won&#x27;t jinx myself saying this is the first of many but let&#x27;s see how it goes 😆 Professionally been getting deep into USD and personally been exploring this thing called Clude Code...&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+</feed>

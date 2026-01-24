@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title> - untold</title>
+    <link href="https://carlocarfora.co.uk/tags/untold/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://carlocarfora.co.uk"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2023-03-12T00:00:00+00:00</updated>
+    <id>https://carlocarfora.co.uk/tags/untold/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Frito-Lay wins VES</title>
+        <published>2023-03-12T00:00:00+00:00</published>
+        <updated>2023-03-12T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://carlocarfora.co.uk/blog/frito-lay-wins-ves/" type="text/html"/>
+        <id>https://carlocarfora.co.uk/blog/frito-lay-wins-ves/</id>
+        
+        <summary type="html">&lt;p&gt;A little bit of a late news post, but wanted to share here the exciting news that Untold Studios won a &lt;strong&gt;VES&lt;&#x2F;strong&gt; in the &lt;strong&gt;Outstanding Visual Effects in a Commercial&lt;&#x2F;strong&gt; at the 2023 awards. &lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>New Look, New Job</title>
+        <published>2021-11-29T00:00:00+00:00</published>
+        <updated>2021-11-29T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://carlocarfora.co.uk/blog/new-look-new-job/" type="text/html"/>
+        <id>https://carlocarfora.co.uk/blog/new-look-new-job/</id>
+        
+        <content type="html">&lt;p&gt;There’s a new paint job over here! Moving over my static Github hosted website to Squarespace has been surprisingly painless. I am planning on cherry-picking a few of the previous blog posts to add as well and that should be it. &lt;&#x2F;p&gt;
+&lt;p&gt;Along with a new look, after almost 4 1&#x2F;2 incredible years at The Mill I have made the decision to move on and was fortunate enough to land a role at Untold Studios where I’ll be continuing adventures as their Lighting Supervisor.&lt;&#x2F;p&gt;
+&lt;p&gt;I learnt everything I know about VFX from my time at The Mill and am indebted to everyone there who I’ve worked with and learnt from. Even as the pandemic changed the nature of working The Mill has been nothing short of an incredible place to work and have fun while doing so.&lt;&#x2F;p&gt;
+&lt;p&gt;All good things must come to an end though, and I’m beyond excited to continue working as Lighting Supervisor in a new environment with fresh challenges and faces!&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>
