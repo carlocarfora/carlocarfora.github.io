@@ -29,7 +29,9 @@
 {% endfor %}
 
 <h3>Github Activity</h3>
-<img src="https://ghstats.dev/api/sparkline?username=carlocarfora&days=30&width=320&height=80" alt="Contribution Sparkline" />
+<div class="sparkline-wrap">
+  <img src="https://ghstats.dev/api/sparkline?username=carlocarfora&days=30&width=320&height=80" alt="Contribution Sparkline" />
+</div>
 {% if config.extra.list_pages %}
 
 {% if paginator %}

@@ -25,6 +25,10 @@
   align-items: center;
 }
 
+.sparkline-wrap {
+  padding-left: 2.5rem;
+}
+
 /* GitHub card widget */
 .github-card {
   width: 100%;
