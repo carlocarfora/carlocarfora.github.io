@@ -25,20 +25,62 @@
   align-items: center;
 }
 
-/* GitHub chart styling */
+/* GitHub activity section */
+.github-activity-wrapper {
+  margin: 1.5rem 0;
+}
+
+.github-activity-label {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  opacity: 0.45;
+  margin-bottom: 0.6rem;
+}
+
+.github-activity-label a {
+  color: inherit;
+}
+
+.github-chart-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.github-chart-container::before,
+.github-chart-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2.5rem;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.github-chart-container::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg, #1a1a1a), transparent);
+}
+
+.github-chart-container::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg, #1a1a1a), transparent);
+}
+
 .github-chart {
   width: 100%;
-  border: none;
-  border-radius: 0;
-  padding: 0;
-}
-
-.github-chart-link {
   display: block;
+  border: none;
+  padding: 0;
+  mix-blend-mode: lighten;
+  opacity: 0.85;
+  transition: opacity 0.2s ease;
 }
 
-.github-chart-link:hover {
-  background-color: transparent;
+.github-chart:hover {
+  opacity: 1;
 }
 
 #footer-container {

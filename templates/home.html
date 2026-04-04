@@ -28,10 +28,12 @@
   {% endif %}
 {% endfor %}
 
-<h3>Github Activity</h3>
-<a href="https://github.com/carlocarfora" target="_blank" rel="noopener noreferrer" class="github-chart-link">
-  <img src="https://ghchart.rshah.org/78B6AD/carlocarfora" alt="GitHub Contributions" class="github-chart">
-</a>
+<div class="github-activity-wrapper">
+  <span class="github-activity-label"><a href="https://github.com/carlocarfora" target="_blank" rel="noopener noreferrer" class="no-hover">github activity</a></span>
+  <div class="github-chart-container">
+    <img src="https://ghchart.rshah.org/78B6AD/carlocarfora" alt="GitHub Contributions" class="github-chart">
+  </div>
+</div>
 
 {% if config.extra.list_pages %}
 
