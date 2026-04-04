@@ -29,6 +29,11 @@
   padding-left: 2.5rem;
 }
 
+.sparkline-wrap img,
+li img {
+  border: none;
+}
+
 /* GitHub card widget */
 .github-card {
   width: 100%;
