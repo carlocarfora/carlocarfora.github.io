@@ -1,7 +1,6 @@
 +++
 title = "What's the purpose of a blog?"
 date = 2026-04-28
-draft = true
 [taxonomies]
   tags = ["work", "thoughts", "professional"]
 [extra]
