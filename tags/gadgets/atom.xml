@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title> - gadgets</title>
+    <link href="https://carlocarfora.co.uk/tags/gadgets/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://carlocarfora.co.uk"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2024-08-17T00:00:00+00:00</updated>
+    <id>https://carlocarfora.co.uk/tags/gadgets/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Kobo Libra Colour First Impressions</title>
+        <published>2024-08-17T00:00:00+00:00</published>
+        <updated>2024-08-17T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://carlocarfora.co.uk/blog/kobo-libra-colour-first-impressions/" type="text/html"/>
+        <id>https://carlocarfora.co.uk/blog/kobo-libra-colour-first-impressions/</id>
+        
+        <summary type="html">&lt;p&gt;Having bought a Kindle many years ago, I recently felt like it was time to upgrade it. I have had one without a backlight and found it could be tiring to read
+at night. The e-reader market has so many choices now!&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+</feed>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<meta name="robots" content="index, follow">
+
+
+
+
+
+
+
+
+
+
+
+
+<title>Installing Teradici PcoIP on Pop!_OS 22.04</title>
+
+
+
+<meta name="title" content="Installing Teradici PcoIP on Pop!_OS 22.04">
+
+
+<meta name="author" content="Carlo">
+
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://carlocarfora.co.uk/blog/installing-teradici-pcoip-on-popos/">
+
+<meta property="og:site_name" content="">
+
+
+<meta property="og:title" content="Installing Teradici PcoIP on Pop!_OS 22.04">
+
+
+
+
+
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://carlocarfora.co.uk/blog/installing-teradici-pcoip-on-popos/">
+
+<meta property="twitter:title" content="Installing Teradici PcoIP on Pop!_OS 22.04">
+
+
+
+
+<link rel="canonical" href="https://carlocarfora.co.uk/blog/installing-teradici-pcoip-on-popos/">
+
+
+
+
+<link rel="stylesheet" type="text/css" href="https://speyll.github.io/suCSS/reset-min.css"/>
+<link rel="stylesheet" type="text/css" href="https://speyll.github.io/suCSS/suCSS-min.css"/>
+<link rel="stylesheet" type="text/css" href="https://carlocarfora.co.uk/css/style.css"/>
+
+<script src="https://carlocarfora.co.uk/js/script.js" defer></script>
+
+
+</head>
+<body>
+      <header>
+          
+
+  
+
+
+  <nav id="nav-bar">
+    <div id="social-icons">
+      <a href="https://www.linkedin.com/in/carlocarfora" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <svg class="icons"><use href="https://carlocarfora.co.uk/icons.svg#linkedin"></use></svg>
+      </a>
+      <a href="https://github.com/carlocarfora" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <svg class="icons"><use href="https://carlocarfora.co.uk/icons.svg#github"></use></svg>
+      </a>
+      <a href="https://x.com/carlo_carfora" target="_blank" rel="noopener noreferrer" aria-label="X">
+        <svg class="icons"><use href="https://carlocarfora.co.uk/icons.svg#x"></use></svg>
+      </a>
+    </div>
+    <div id="nav-links">
+      
+        <a href="&#x2F;" class="">
+          
+          &#x2F;home&#x2F;
+        </a>
+      
+        <a href="&#x2F;work" class="">
+          
+          &#x2F;work&#x2F;
+        </a>
+      
+        <a href="&#x2F;play" class="">
+          
+          &#x2F;play&#x2F;
+        </a>
+      
+        <a href="&#x2F;me" class="">
+          
+          &#x2F;me&#x2F;
+        </a>
+      
+        <a href="&#x2F;blog" class="">
+          
+          &#x2F;blog&#x2F;
+        </a>
+      
+      <input type="checkbox" id="theme-toggle" style="display: none;">
+      <label for="theme-toggle" id="theme-toggle-label"><svg id="theme-icon" class="icons"><use href="https://carlocarfora.co.uk/icons.svg#lightMode"></use></svg></label>
+      <audio id="theme-sound">
+        <source src="https://carlocarfora.co.uk/click.ogg" type="audio/ogg">
+      </audio>
+    </div>
+  </nav>
+
+
+      </header>
+      <main>
+          
+<div><a href="..">..</a>/<span class="accent-data">installing-teradici-pcoip-on-popos</span></div>
+<time datetime="2022-06-28">Published on: <span class="accent-data">2022-06-28</span></time>
+
+<address rel="author">By <span class="accent-data">Carlo</span></address>
+
+<h1>Installing Teradici PcoIP on Pop!_OS 22.04</h1>
+
+
+<h2>Table of contents</h2>
+<ul>
+  
+  <li>
+    <a href="https://carlocarfora.co.uk/blog/installing-teradici-pcoip-on-popos/#the-official-docs">The Official Docs</a>
+    
+  </li>
+  
+  <li>
+    <a href="https://carlocarfora.co.uk/blog/installing-teradici-pcoip-on-popos/#what-worked">What Worked</a>
+    
+  </li>
+  
+  <li>
+    <a href="https://carlocarfora.co.uk/blog/installing-teradici-pcoip-on-popos/#steps">Steps</a>
+    
+  </li>
+  
+</ul>
+
+
+<p>Setting up a new computer with Pop!_OS, I need to use a Teradici PCoIP Software Client for remoting into work. I’d previously been using Fedora where it had to be run in a docker container. I thought it would run natively as it was built for Ubuntu, but there were some missing dependencies and so back to setting it up in a docker container.</p>
+<p>Hopefully the instructions below help anyone trying to install the Teradici PCoIP Software client!</p>
+<h3 id="the-official-docs">The Official Docs</h3>
+<p>The docs on installing it without a container:</p>
+<p><a rel="noopener" target="_blank" href="https://www.teradici.com/web-help/pcoip_client/LInux/21.03/installation/install_client_ubuntu/">https://www.teradici.com/web-help/pcoip_client/LInux/21.03/installation/install_client_ubuntu/</a></p>
+<p>Docs on installing in a docker container:</p>
+<p><a rel="noopener" target="_blank" href="https://www.teradici.com/web-help/pcoip_client/linux/21.01/reference/docker_containers/">https://www.teradici.com/web-help/pcoip_client/linux/21.01/reference/docker_containers/</a></p>
+<p>Trying it with the official docs had no luck. The repo was throwing up some errors, so back to the drawing board.</p>
+<h3 id="what-worked">What Worked</h3>
+<p>After some head scratching the official docs looked to be outdated so modifying the instructions a bit worked for me. Turns out the official dockerfile was pointing to the old repo and only by looking at the instructions to install without a container and then the container instructions did I realise this. Steps below!</p>
+<h3 id="steps">Steps</h3>
+<p>Install Docker. I had to use docker.io for Pop!_OS.</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">$</span><span> sudo apt-get install docker.io
+</span><span style="color:#bf616a;">$</span><span> xhost +local:docker
+</span></code></pre>
+<p>Add docker to sudo so don't need sudo commands. Not required though.</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">$</span><span> sudo groupadd docker
+</span><span style="color:#bf616a;">$</span><span> sudo usermod</span><span style="color:#bf616a;"> -a -G</span><span> docker  $</span><span style="color:#bf616a;">USER
+</span></code></pre>
+<p>Create a directory for the dockerfile to live in first, cd to it and then build.</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">$</span><span> cd &lt;directory with Dockerfile&gt;
+</span><span style="color:#bf616a;">$</span><span> docker build</span><span style="color:#bf616a;"> -t</span><span> pcoip-client .
+</span></code></pre>
+<p>Dockerfile for docker container. Note that the user name has been changed to my user name carlo and user/group id's were already 1000 for me. You need to make sure you set this up properly or it won't work. Use the command id to find your user/group id's and change carlo to your username.</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">FROM</span><span> ubuntu:18.04
+</span><span>
+</span><span style="color:#65737e;"># Use the following two lines to install the Teradici repository package
+</span><span style="color:#bf616a;">RUN</span><span> apt-get update &amp;&amp; </span><span style="color:#bf616a;">apt-get</span><span> install</span><span style="color:#bf616a;"> -y</span><span> wget &amp;&amp; </span><span style="color:#bf616a;">apt-get</span><span> install</span><span style="color:#bf616a;"> -y</span><span> curl
+</span><span>
+</span><span style="color:#65737e;"># This was the bit that is wrong in the example dockerfile
+</span><span style="color:#bf616a;">RUN</span><span> curl</span><span style="color:#bf616a;"> -1sLf</span><span> https://dl.teradici.com/DeAdBCiUYInHcSTy/pcoip-client/cfg/setup/bash.deb.sh | </span><span style="color:#bf616a;">sh</span><span>=</span><span style="color:#a3be8c;">ubuntu </span><span style="color:#bf616a;">codename</span><span>=</span><span style="color:#a3be8c;">bionic </span><span style="color:#bf616a;">bash
+</span><span>
+</span><span style="color:#65737e;"># Install apt-transport-https to support the client installation
+</span><span style="color:#bf616a;">RUN</span><span> apt-get update &amp;&amp; </span><span style="color:#bf616a;">apt-get</span><span> install</span><span style="color:#bf616a;"> -y</span><span> apt-transport-https
+</span><span>
+</span><span style="color:#65737e;"># Install the client application
+</span><span style="color:#bf616a;">RUN</span><span> apt-get install</span><span style="color:#bf616a;"> -y</span><span> pcoip-client
+</span><span>
+</span><span style="color:#65737e;"># Setup a functional user within the docker container with the same permissions as your local user.
+</span><span style="color:#65737e;"># Replace 1000 with your user / group id
+</span><span style="color:#65737e;"># Replace myuser with your local username
+</span><span style="color:#bf616a;">RUN</span><span> export uid=1000 gid=1000 &amp;&amp; \
+</span><span>    </span><span style="color:#bf616a;">mkdir -p</span><span> /etc/sudoers.d/ &amp;&amp; \
+</span><span>    </span><span style="color:#bf616a;">mkdir -p</span><span> /home/carlo &amp;&amp; \
+</span><span>    </span><span style="color:#96b5b4;">echo </span><span>&quot;</span><span style="color:#a3be8c;">carlo:x:</span><span>$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">uid</span><span style="color:#a3be8c;">}:</span><span>$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">gid</span><span style="color:#a3be8c;">}:carlo,,,:/home/carlo:/bin/bash</span><span>&quot; &gt;&gt; /etc/passwd &amp;&amp; \
+</span><span>    </span><span style="color:#96b5b4;">echo </span><span>&quot;</span><span style="color:#a3be8c;">carlo:x:</span><span>$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">uid</span><span style="color:#a3be8c;">}:</span><span>&quot; &gt;&gt; /etc/group &amp;&amp; \
+</span><span>    </span><span style="color:#96b5b4;">echo </span><span>&quot;</span><span style="color:#a3be8c;">carlo ALL=(ALL) NOPASSWD: ALL</span><span>&quot; &gt; /etc/sudoers.d/carlo &amp;&amp; \
+</span><span>    </span><span style="color:#bf616a;">chmod</span><span> 0440 /etc/sudoers.d/carlo &amp;&amp; \
+</span><span>    </span><span style="color:#bf616a;">chown </span><span>${</span><span style="color:#bf616a;">uid</span><span>}:${</span><span style="color:#bf616a;">gid</span><span>}</span><span style="color:#bf616a;"> -R</span><span> /home/carlo
+</span><span>
+</span><span style="color:#65737e;"># Set some environment variables for the current user
+</span><span style="color:#bf616a;">USER</span><span> carlo
+</span><span style="color:#bf616a;">ENV</span><span> HOME /home/carlo
+</span><span>
+</span><span style="color:#65737e;"># Set the path for QT to find the keyboard context
+</span><span style="color:#bf616a;">ENV</span><span> QT_XKB_CONFIG_ROOT /user/share/X11/xkb
+</span><span>
+</span><span style="color:#bf616a;">ENTRYPOINT</span><span> exec pcoip-client
+</span></code></pre>
+<p>Command to run the docker container. Again don't forget to change carlo to your username.</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">$</span><span> docker run</span><span style="color:#bf616a;"> -d --rm -h</span><span> myhost</span><span style="color:#bf616a;"> -v </span><span>$(</span><span style="color:#bf616a;">pwd</span><span>)/.config/:/home/carlo/.config/Teradici</span><span style="color:#bf616a;"> -v </span><span>$(</span><span style="color:#bf616a;">pwd</span><span>)/.logs:/tmp/Teradici/$</span><span style="color:#bf616a;">USER</span><span>/PCoIPClient/logs</span><span style="color:#bf616a;"> -v</span><span> /tmp/.X11-unix:/tmp/.X11-unix</span><span style="color:#bf616a;"> -e</span><span> DISPLAY=$</span><span style="color:#bf616a;">DISPLAY</span><span> pcoip-client
+</span></code></pre>
+<p>Hope that has helped anyone reading this to get it installed on their machine!</p>
+
+
+<p class="tags-data">
+  
+  
+  <a href="/tags/linux">&#47;linux&#47;</a>
+  
+  <a href="/tags/popos">&#47;popos&#47;</a>
+  
+  
+</p>
+
+      </main>
+      <footer>
+          <hr>
+<div id="footer-container">
+  
+  <div>
+    <p>Theme and color theme licensed under <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Licence_MIT">MIT</a>.<br>
+      Built with <a target="_blank" rel="noopener noreferrer" href="https://www.getzola.org">Zola</a> using <a target="_blank" rel="noopener noreferrer" href="https://github.com/Speyll/anemone">anemone</a> theme, <a target="_blank" rel="noopener noreferrer" href="https://speyll.github.io/suCSS/">suCSS</a> framework &amp; <a target="_blank" rel="noopener noreferrer" href="https://github.com/Speyll/veqev">veqev</a>.<br>
+    </p>
+
+  </div>
+  
+</div>
+
+      </footer>
+</body>
+</html>

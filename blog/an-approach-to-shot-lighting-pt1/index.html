@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<meta name="robots" content="index, follow">
+
+
+
+
+
+
+
+
+
+
+
+
+<title>An approach to shot lighting in Houdini pt.1</title>
+
+
+
+<meta name="title" content="An approach to shot lighting in Houdini pt.1">
+
+
+<meta name="author" content="Carlo">
+
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://carlocarfora.co.uk/blog/an-approach-to-shot-lighting-pt1/">
+
+<meta property="og:site_name" content="">
+
+
+<meta property="og:title" content="An approach to shot lighting in Houdini pt.1">
+
+
+
+
+
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://carlocarfora.co.uk/blog/an-approach-to-shot-lighting-pt1/">
+
+<meta property="twitter:title" content="An approach to shot lighting in Houdini pt.1">
+
+
+
+
+<link rel="canonical" href="https://carlocarfora.co.uk/blog/an-approach-to-shot-lighting-pt1/">
+
+
+
+
+<link rel="stylesheet" type="text/css" href="https://speyll.github.io/suCSS/reset-min.css"/>
+<link rel="stylesheet" type="text/css" href="https://speyll.github.io/suCSS/suCSS-min.css"/>
+<link rel="stylesheet" type="text/css" href="https://carlocarfora.co.uk/css/style.css"/>
+
+<script src="https://carlocarfora.co.uk/js/script.js" defer></script>
+
+
+</head>
+<body>
+      <header>
+          
+
+  
+
+
+  <nav id="nav-bar">
+    <div id="social-icons">
+      <a href="https://www.linkedin.com/in/carlocarfora" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <svg class="icons"><use href="https://carlocarfora.co.uk/icons.svg#linkedin"></use></svg>
+      </a>
+      <a href="https://github.com/carlocarfora" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <svg class="icons"><use href="https://carlocarfora.co.uk/icons.svg#github"></use></svg>
+      </a>
+      <a href="https://x.com/carlo_carfora" target="_blank" rel="noopener noreferrer" aria-label="X">
+        <svg class="icons"><use href="https://carlocarfora.co.uk/icons.svg#x"></use></svg>
+      </a>
+    </div>
+    <div id="nav-links">
+      
+        <a href="&#x2F;" class="">
+          
+          &#x2F;home&#x2F;
+        </a>
+      
+        <a href="&#x2F;work" class="">
+          
+          &#x2F;work&#x2F;
+        </a>
+      
+        <a href="&#x2F;play" class="">
+          
+          &#x2F;play&#x2F;
+        </a>
+      
+        <a href="&#x2F;me" class="">
+          
+          &#x2F;me&#x2F;
+        </a>
+      
+        <a href="&#x2F;blog" class="">
+          
+          &#x2F;blog&#x2F;
+        </a>
+      
+      <input type="checkbox" id="theme-toggle" style="display: none;">
+      <label for="theme-toggle" id="theme-toggle-label"><svg id="theme-icon" class="icons"><use href="https://carlocarfora.co.uk/icons.svg#lightMode"></use></svg></label>
+      <audio id="theme-sound">
+        <source src="https://carlocarfora.co.uk/click.ogg" type="audio/ogg">
+      </audio>
+    </div>
+  </nav>
+
+
+      </header>
+      <main>
+          
+<div><a href="..">..</a>/<span class="accent-data">an-approach-to-shot-lighting-pt1</span></div>
+<time datetime="2022-05-11">Published on: <span class="accent-data">2022-05-11</span></time>
+
+<address rel="author">By <span class="accent-data">Carlo</span></address>
+
+<h1>An approach to shot lighting in Houdini pt.1</h1>
+
+
+<h2>Table of contents</h2>
+<ul>
+  
+  <li>
+    <a href="https://carlocarfora.co.uk/blog/an-approach-to-shot-lighting-pt1/#a-preface">A preface.</a>
+    
+  </li>
+  
+  <li>
+    <a href="https://carlocarfora.co.uk/blog/an-approach-to-shot-lighting-pt1/#structure-is-nice">Structure is nice.</a>
+    
+  </li>
+  
+  <li>
+    <a href="https://carlocarfora.co.uk/blog/an-approach-to-shot-lighting-pt1/#templates-are-nicer-if-done-right">Templates are nicer (if done right).</a>
+    
+  </li>
+  
+  <li>
+    <a href="https://carlocarfora.co.uk/blog/an-approach-to-shot-lighting-pt1/#what-s-in-a-scene">What’s in a scene?</a>
+    
+  </li>
+  
+  <li>
+    <a href="https://carlocarfora.co.uk/blog/an-approach-to-shot-lighting-pt1/#why-think-like-this">Why think like this?</a>
+    
+  </li>
+  
+  <li>
+    <a href="https://carlocarfora.co.uk/blog/an-approach-to-shot-lighting-pt1/#so-what-does-it-look-like-in-practice">So what does it look like in practice?</a>
+    
+  </li>
+  
+</ul>
+
+
+<h3 id="a-preface">A preface.</h3>
+<p>I’ve wanted to write this series for a while but never quite got round to it, or thought that putting it down into written form was a waste of time. However, I’ve realised over the years that there are many different schools of thought on this so perhaps writing this up will offer (yet) another way to tackle it. This post will focus on the ideas and train of thought, and there’ll be a follow up with it in practice.</p>
+<!--more-->
+<p>I will preface this with yes Solaris is here now; it has it’s place in a studio and brings a lot of benefits, but it’s not going to be for everyone. The current reality is that studios are still figuring out USD and how to approach it in a way that provides the best benefits.</p>
+<h3 id="structure-is-nice">Structure is nice.</h3>
+<p>Starting with a blank scene can be lovely… when you’re at home and the idea of deadlines are but a distant thought. When you’re up against production deadlines then anything to help hit the ground running is not only appreciated, but essential. Consistency between artists, shots and departments is crucial; if everyone started off with a blank scene and told to work as they see fit you’d probably get as many different ways of doing things as there are artists!</p>
+<h3 id="templates-are-nicer-if-done-right">Templates are nicer (if done right).</h3>
+<p>Introducing one answer: templates! Considered a taboo subject sometimes, a good template should not get in your way and keep you feeling free to work as you please. With the often mundane setup of a production render scene ready to go, an artist can  start lighting a shot from the word go. It’s a balancing act, and often templates will be customised per show/sequence/shot depending on lots of factors. Having a baseline template to work off though can ensure there is always some level of consistency across the board. So what exactly does a good template do and not do?</p>
+<h3 id="what-s-in-a-scene">What’s in a scene?</h3>
+<p>There are things that pretty much every production lighting scene needs to have set up, no matter the simplicity or complexity of the shot. A typical lighting scene could be described as having the following flow of data:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>Scene Input &gt; Scene Assembly &gt; Scene Output
+</span></code></pre>
+<p><strong>Scene Input</strong> could be anything external used such as textures, models etc. everything used to construct the scene. These might be published through an asset management system.</p>
+<p><strong>Scene Assembly</strong> is where the scene is constructed and lit. This could be extremely complex or simple, it all depends on the show at this point. Camera, environment, characters, lighting, etc. the shot comes together here.</p>
+<p><strong>Scene Output</strong> is where the output is setup, so here it would be the renderer of choice and a typical production output would incorporate these:</p>
+<ul>
+<li>Render Settings</li>
+<li>Beauty Render</li>
+<li>Utility Render Pass</li>
+<li>AOV’s</li>
+</ul>
+<p>Scene Output also overlaps in some ways with Scene Assembly. You need the end of Assembly to be organised in such a way that the start of Output will receive standardised conventions so it can be connected. This will make sense in practice but it’s good to think about.</p>
+<h3 id="why-think-like-this">Why think like this?</h3>
+<p>Scenes can get complex, really complex. Having a clear flow of how the scene will be put together and how data flows through it can help to picture structure before you’ve even started. </p>
+<p>Standardised scene structure opens the door to automating and tooling even more of the day to day workflow, and to work in a batch/sequence/multi-shot manner it’s absolutely crucial to have something like a template in place. Building 100 shots without any standards in place is just simply not possible.</p>
+<p>It can also inform decisions about standards beyond shot lighting too; what AOV’s should comp be getting from the start, how should passes be named, how should light groups be split, etc.</p>
+<h3 id="so-what-does-it-look-like-in-practice">So what does it look like in practice?</h3>
+<p>In the next part I’ll show the outline of a structure using in Houdini that I’ve personally used many times in production. It’s not the only way to do things but it is one way of organising a scene, one that has been proven on many jobs from small to extremely complex.</p>
+<p>I’ll keep it renderer agnostic, but I do have a personal preference using Arnold that opens up a lot of flexibility using Operators. That’s for another blog post in itself though… in the mean time check out part 2 when it’s up and expect some images to look at!</p>
+
+
+<p class="tags-data">
+  
+  
+  <a href="/tags/houdini">&#47;houdini&#47;</a>
+  
+  <a href="/tags/lighting">&#47;lighting&#47;</a>
+  
+  <a href="/tags/arnold">&#47;arnold&#47;</a>
+  
+  <a href="/tags/workflow">&#47;workflow&#47;</a>
+  
+  
+</p>
+
+      </main>
+      <footer>
+          <hr>
+<div id="footer-container">
+  
+  <div>
+    <p>Theme and color theme licensed under <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Licence_MIT">MIT</a>.<br>
+      Built with <a target="_blank" rel="noopener noreferrer" href="https://www.getzola.org">Zola</a> using <a target="_blank" rel="noopener noreferrer" href="https://github.com/Speyll/anemone">anemone</a> theme, <a target="_blank" rel="noopener noreferrer" href="https://speyll.github.io/suCSS/">suCSS</a> framework &amp; <a target="_blank" rel="noopener noreferrer" href="https://github.com/Speyll/veqev">veqev</a>.<br>
+    </p>
+
+  </div>
+  
+</div>
+
+      </footer>
+</body>
+</html>

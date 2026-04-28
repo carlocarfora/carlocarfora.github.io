@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title> - lighting</title>
+    <link href="https://carlocarfora.co.uk/tags/lighting/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://carlocarfora.co.uk"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2022-05-11T00:00:00+00:00</updated>
+    <id>https://carlocarfora.co.uk/tags/lighting/atom.xml</id>
+    <entry xml:lang="en">
+        <title>An approach to shot lighting in Houdini pt.1</title>
+        <published>2022-05-11T00:00:00+00:00</published>
+        <updated>2022-05-11T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://carlocarfora.co.uk/blog/an-approach-to-shot-lighting-pt1/" type="text/html"/>
+        <id>https://carlocarfora.co.uk/blog/an-approach-to-shot-lighting-pt1/</id>
+        
+        <content type="html">&lt;h3 id=&quot;a-preface&quot;&gt;A preface.&lt;&#x2F;h3&gt;
+&lt;p&gt;I’ve wanted to write this series for a while but never quite got round to it, or thought that putting it down into written form was a waste of time. However, I’ve realised over the years that there are many different schools of thought on this so perhaps writing this up will offer (yet) another way to tackle it. This post will focus on the ideas and train of thought, and there’ll be a follow up with it in practice.&lt;&#x2F;p&gt;
+&lt;!--more--&gt;
+&lt;p&gt;I will preface this with yes Solaris is here now; it has it’s place in a studio and brings a lot of benefits, but it’s not going to be for everyone. The current reality is that studios are still figuring out USD and how to approach it in a way that provides the best benefits.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;structure-is-nice&quot;&gt;Structure is nice.&lt;&#x2F;h3&gt;
+&lt;p&gt;Starting with a blank scene can be lovely… when you’re at home and the idea of deadlines are but a distant thought. When you’re up against production deadlines then anything to help hit the ground running is not only appreciated, but essential. Consistency between artists, shots and departments is crucial; if everyone started off with a blank scene and told to work as they see fit you’d probably get as many different ways of doing things as there are artists!&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;templates-are-nicer-if-done-right&quot;&gt;Templates are nicer (if done right).&lt;&#x2F;h3&gt;
+&lt;p&gt;Introducing one answer: templates! Considered a taboo subject sometimes, a good template should not get in your way and keep you feeling free to work as you please. With the often mundane setup of a production render scene ready to go, an artist can  start lighting a shot from the word go. It’s a balancing act, and often templates will be customised per show&#x2F;sequence&#x2F;shot depending on lots of factors. Having a baseline template to work off though can ensure there is always some level of consistency across the board. So what exactly does a good template do and not do?&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;what-s-in-a-scene&quot;&gt;What’s in a scene?&lt;&#x2F;h3&gt;
+&lt;p&gt;There are things that pretty much every production lighting scene needs to have set up, no matter the simplicity or complexity of the shot. A typical lighting scene could be described as having the following flow of data:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;Scene Input &amp;gt; Scene Assembly &amp;gt; Scene Output
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;strong&gt;Scene Input&lt;&#x2F;strong&gt; could be anything external used such as textures, models etc. everything used to construct the scene. These might be published through an asset management system.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Scene Assembly&lt;&#x2F;strong&gt; is where the scene is constructed and lit. This could be extremely complex or simple, it all depends on the show at this point. Camera, environment, characters, lighting, etc. the shot comes together here.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Scene Output&lt;&#x2F;strong&gt; is where the output is setup, so here it would be the renderer of choice and a typical production output would incorporate these:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Render Settings&lt;&#x2F;li&gt;
+&lt;li&gt;Beauty Render&lt;&#x2F;li&gt;
+&lt;li&gt;Utility Render Pass&lt;&#x2F;li&gt;
+&lt;li&gt;AOV’s&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Scene Output also overlaps in some ways with Scene Assembly. You need the end of Assembly to be organised in such a way that the start of Output will receive standardised conventions so it can be connected. This will make sense in practice but it’s good to think about.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;why-think-like-this&quot;&gt;Why think like this?&lt;&#x2F;h3&gt;
+&lt;p&gt;Scenes can get complex, really complex. Having a clear flow of how the scene will be put together and how data flows through it can help to picture structure before you’ve even started. &lt;&#x2F;p&gt;
+&lt;p&gt;Standardised scene structure opens the door to automating and tooling even more of the day to day workflow, and to work in a batch&#x2F;sequence&#x2F;multi-shot manner it’s absolutely crucial to have something like a template in place. Building 100 shots without any standards in place is just simply not possible.&lt;&#x2F;p&gt;
+&lt;p&gt;It can also inform decisions about standards beyond shot lighting too; what AOV’s should comp be getting from the start, how should passes be named, how should light groups be split, etc.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;so-what-does-it-look-like-in-practice&quot;&gt;So what does it look like in practice?&lt;&#x2F;h3&gt;
+&lt;p&gt;In the next part I’ll show the outline of a structure using in Houdini that I’ve personally used many times in production. It’s not the only way to do things but it is one way of organising a scene, one that has been proven on many jobs from small to extremely complex.&lt;&#x2F;p&gt;
+&lt;p&gt;I’ll keep it renderer agnostic, but I do have a personal preference using Arnold that opens up a lot of flexibility using Operators. That’s for another blog post in itself though… in the mean time check out part 2 when it’s up and expect some images to look at!&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>
