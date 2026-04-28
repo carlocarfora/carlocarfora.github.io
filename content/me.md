@@ -2,7 +2,7 @@
 title = "Me"
 +++
 
-![Selfie](/carlo_profile_alt.jpg)
+<img src="/carlo_profile_alt.jpg" alt="Selfie" style="float: right; margin: 0 0 1rem 1.5rem; max-width: 220px;">
 
 Hello! I’m Carlo, and this is my tiny place on the internet 😁
 
