@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title> - home</title>
+    <link href="https://carlocarfora.co.uk/tags/home/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://carlocarfora.co.uk"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2026-05-16T00:00:00+00:00</updated>
+    <id>https://carlocarfora.co.uk/tags/home/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Home Assistant Adventures</title>
+        <published>2026-05-16T00:00:00+00:00</published>
+        <updated>2026-05-16T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://carlocarfora.co.uk/blog/home-assistant-adventures/" type="text/html"/>
+        <id>https://carlocarfora.co.uk/blog/home-assistant-adventures/</id>
+        
+        <summary type="html">&lt;p&gt;Back having soem fun with home automation thanks to an old NAS and Home Assistant. Its been a few years since I&#x27;ve used it last, when I ran it on a Raspberry Pi 3 and it&#x27;s come a long way since!&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+</feed>
