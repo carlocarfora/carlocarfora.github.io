@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<meta name="robots" content="index, follow">
+
+
+
+
+
+
+
+
+
+
+
+
+<title>Installing Fedora Houdini and Renderman</title>
+
+
+
+<meta name="title" content="Installing Fedora Houdini and Renderman">
+
+
+<meta name="author" content="Carlo">
+
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://carlocarfora.co.uk/blog/installing-fedora-houdini-and-renderman/">
+
+<meta property="og:site_name" content="">
+
+
+<meta property="og:title" content="Installing Fedora Houdini and Renderman">
+
+
+
+
+
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://carlocarfora.co.uk/blog/installing-fedora-houdini-and-renderman/">
+
+<meta property="twitter:title" content="Installing Fedora Houdini and Renderman">
+
+
+
+
+<link rel="canonical" href="https://carlocarfora.co.uk/blog/installing-fedora-houdini-and-renderman/">
+
+
+
+
+<link rel="stylesheet" type="text/css" href="https://speyll.github.io/suCSS/reset-min.css"/>
+<link rel="stylesheet" type="text/css" href="https://speyll.github.io/suCSS/suCSS-min.css"/>
+<link rel="stylesheet" type="text/css" href="https://carlocarfora.co.uk/css/style.css"/>
+
+<script src="https://carlocarfora.co.uk/js/script.js" defer></script>
+
+
+</head>
+<body>
+      <header>
+          
+
+  
+
+
+  <nav id="nav-bar">
+    <div id="social-icons">
+      <a href="https://www.linkedin.com/in/carlocarfora" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <svg class="icons"><use href="https://carlocarfora.co.uk/icons.svg#linkedin"></use></svg>
+      </a>
+      <a href="https://github.com/carlocarfora" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <svg class="icons"><use href="https://carlocarfora.co.uk/icons.svg#github"></use></svg>
+      </a>
+      <a href="https://x.com/carlo_carfora" target="_blank" rel="noopener noreferrer" aria-label="X">
+        <svg class="icons"><use href="https://carlocarfora.co.uk/icons.svg#x"></use></svg>
+      </a>
+    </div>
+    <div id="nav-links">
+      
+        <a href="&#x2F;" class="">
+          
+          &#x2F;home&#x2F;
+        </a>
+      
+        <a href="&#x2F;work" class="">
+          
+          &#x2F;work&#x2F;
+        </a>
+      
+        <a href="&#x2F;play" class="">
+          
+          &#x2F;play&#x2F;
+        </a>
+      
+        <a href="&#x2F;me" class="">
+          
+          &#x2F;me&#x2F;
+        </a>
+      
+        <a href="&#x2F;blog" class="">
+          
+          &#x2F;blog&#x2F;
+        </a>
+      
+      <input type="checkbox" id="theme-toggle" style="display: none;">
+      <label for="theme-toggle" id="theme-toggle-label"><svg id="theme-icon" class="icons"><use href="https://carlocarfora.co.uk/icons.svg#lightMode"></use></svg></label>
+      <audio id="theme-sound">
+        <source src="https://carlocarfora.co.uk/click.ogg" type="audio/ogg">
+      </audio>
+    </div>
+  </nav>
+
+
+      </header>
+      <main>
+          
+<div><a href="..">..</a>/<span class="accent-data">installing-fedora-houdini-and-renderman</span></div>
+<time datetime="2019-12-16">Published on: <span class="accent-data">2019-12-16</span></time>
+
+<address rel="author">By <span class="accent-data">Carlo</span></address>
+
+<h1>Installing Fedora Houdini and Renderman</h1>
+
+
+<h2>Table of contents</h2>
+<ul>
+  
+  <li>
+    <a href="https://carlocarfora.co.uk/blog/installing-fedora-houdini-and-renderman/#installing-fedora-with-optimus">Installing Fedora with Optimus</a>
+    
+  </li>
+  
+  <li>
+    <a href="https://carlocarfora.co.uk/blog/installing-fedora-houdini-and-renderman/#installing-houdini">Installing Houdini</a>
+    
+  </li>
+  
+  <li>
+    <a href="https://carlocarfora.co.uk/blog/installing-fedora-houdini-and-renderman/#installing-renderman">Installing Renderman</a>
+    
+  </li>
+  
+</ul>
+
+
+<p>This is a guide on setting up a system with Fedora, Houdini and Renderman. There were a few obstacles along the way and hopefully this can help anyone who might want to do the same thing. You may not have the same issues I did, but I had to do some extensive googling to find the answers to issues so hope this helps!</p>
+<h3 id="installing-fedora-with-optimus">Installing Fedora with Optimus</h3>
+<p>Installed the vanilla Fedora 31 Workstation with GNOME. My laptop is an NVIDIA Optimus machine, and this has support out of the box once you install the proprietory NVIDIA drivers. It did not boot up initially though when trying to run the live USB; this is common with Optimus setups.</p>
+<p>When booting, in the GRUB menu press e and add nouveau.modeset=0 to the bootup parameters. Put it just before the word quiet, not at the end of it all.</p>
+<p>Once you're in Fedora, install the Free and Nonfree repos from <a rel="noopener" target="_blank" href="https://rpmfusion.org">https://rpmfusion.org</a> then follow the guide here to get Optimus working.</p>
+<p>Check it's all good with:</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">__NV_PRIME_RENDER_OFFLOAD</span><span>=</span><span style="color:#a3be8c;">1 </span><span style="color:#bf616a;">__GLX_VENDOR_LIBRARY_NAME</span><span>=</span><span style="color:#a3be8c;">nvidia </span><span style="color:#bf616a;">glxinfo </span><span>| </span><span style="color:#bf616a;">grep</span><span> vendor.
+</span></code></pre>
+<p>You'll need to start Houdini with this command to use the NVIDIA card, so wrap it up into an alias or bash script.</p>
+<h3 id="installing-houdini">Installing Houdini</h3>
+<p>Once that's done, you can move on to installing Houdini. Grab the download, install as you would in the usual way. I had Houdini refusing to start because I was missing a couple of shared libraries, specifically libnsl and libGLU. I found and installed both of these libraries using the package manager. If you have anything else missing for some reason, you can probably find and install them using DNF.</p>
+<p>I found that the license server service sesinetd was failing to start on boot. This is because of SELinux and the default security setup. The way that I got this working was to install a package called setroubleshoot. Once you have this installed, when you reboot on GNOME it'll pop up with an alert saying that the service sesinetd could not be started. It'll also give you the commands to fix this, it looks something like this (yours could be different so check the output rather than copy/pasting):</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">ausearch -c </span><span>&#39;</span><span style="color:#a3be8c;">sesinetd</span><span>&#39;</span><span style="color:#bf616a;"> --raw </span><span>| </span><span style="color:#bf616a;">audit2allow -M</span><span> my-sesinetd
+</span><span style="color:#bf616a;">semodule -X</span><span> 300</span><span style="color:#bf616a;"> -i</span><span> my-sesinetd.pp
+</span></code></pre>
+<p>Make sure to run these as sudo and with the first command, you'll need to put sudo after the pipe (|) as well as audit2allow wants to run as sudo too.</p>
+<h3 id="installing-renderman">Installing Renderman</h3>
+<p>To install Renderman NC, you need to download their installer. I had trouble running their installer to start with; Fedora will install it for you then you can then find it in <code>/opt/pixar</code> which is not immediately obvious.</p>
+<p>When trying to run RenderManInstaller, it would crash with Segmentation Fault. Searchign the forums, I found a thread that mentions it uses a version of openssl that isn't installed by default. Fix this by installing the <code>compat-openssl10-devel</code> package using DNF. You can then proceed to install Renderman NC for your machine.</p>
+<p>Once you have installed Renderman NC, you'll need to edit your houdini.env file which you can find usually in <code>~/houdini##.#.</code> Add these lines to the file:</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#65737e;"># RENDERMAN ENV VARIABLES
+</span><span style="color:#bf616a;">RMANTREE</span><span>=</span><span style="color:#a3be8c;">/opt/pixar/RenderManProServer-23.0
+</span><span style="color:#bf616a;">RFHTREE</span><span>=</span><span style="color:#a3be8c;">/opt/pixar/RenderManForHoudini-23.0
+</span><span style="color:#bf616a;">HOUDINI_PATH</span><span>=$</span><span style="color:#bf616a;">RFHTREE</span><span style="color:#a3be8c;">/18.0:</span><span>&amp;
+</span></code></pre>
+<p>If all went well, you can run Houdini and see Renderman is installed. In my case, when I tried to drop down a ris ROP and render something I got another error message about a missing library called libtinfo. To install this library, I had to install a package called <code>ncurses-compat-libs</code> from DNF.</p>
+<p>After this, I was able to load Houdini and Renderman. I hope this helps anyone out there who might have had issues like I did!</p>
+
+
+<p class="tags-data">
+  
+  
+  <a href="/tags/linux">&#47;linux&#47;</a>
+  
+  <a href="/tags/fedora">&#47;fedora&#47;</a>
+  
+  <a href="/tags/renderman">&#47;renderman&#47;</a>
+  
+  
+</p>
+
+      </main>
+      <footer>
+          <hr>
+<div id="footer-container">
+  
+  <div>
+    <p>Theme and color theme licensed under <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/Licence_MIT">MIT</a>.<br>
+      Built with <a target="_blank" rel="noopener noreferrer" href="https://www.getzola.org">Zola</a> using <a target="_blank" rel="noopener noreferrer" href="https://github.com/Speyll/anemone">anemone</a> theme, <a target="_blank" rel="noopener noreferrer" href="https://speyll.github.io/suCSS/">suCSS</a> framework &amp; <a target="_blank" rel="noopener noreferrer" href="https://github.com/Speyll/veqev">veqev</a>.<br>
+    </p>
+
+  </div>
+  
+</div>
+
+      </footer>
+</body>
+</html>

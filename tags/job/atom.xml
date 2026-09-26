@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title> - job</title>
+    <link href="https://carlocarfora.co.uk/tags/job/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://carlocarfora.co.uk"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2025-02-28T00:00:00+00:00</updated>
+    <id>https://carlocarfora.co.uk/tags/job/atom.xml</id>
+    <entry xml:lang="en">
+        <title>A Small Goodbye to The Mill</title>
+        <published>2025-02-28T00:00:00+00:00</published>
+        <updated>2025-02-28T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://carlocarfora.co.uk/blog/end-of-an-era-goodbye-mill/" type="text/html"/>
+        <id>https://carlocarfora.co.uk/blog/end-of-an-era-goodbye-mill/</id>
+        
+        <summary type="html">&lt;p&gt;With the recent news of Technicolor abruptly closing, and bringing down with it some of the biggest names in the VFX industry I thought it was only fitting to write a few words about the first VFX job I had in London.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>New Look, New Job</title>
+        <published>2021-11-29T00:00:00+00:00</published>
+        <updated>2021-11-29T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://carlocarfora.co.uk/blog/new-look-new-job/" type="text/html"/>
+        <id>https://carlocarfora.co.uk/blog/new-look-new-job/</id>
+        
+        <content type="html">&lt;p&gt;There’s a new paint job over here! Moving over my static Github hosted website to Squarespace has been surprisingly painless. I am planning on cherry-picking a few of the previous blog posts to add as well and that should be it. &lt;&#x2F;p&gt;
+&lt;p&gt;Along with a new look, after almost 4 1&#x2F;2 incredible years at The Mill I have made the decision to move on and was fortunate enough to land a role at Untold Studios where I’ll be continuing adventures as their Lighting Supervisor.&lt;&#x2F;p&gt;
+&lt;p&gt;I learnt everything I know about VFX from my time at The Mill and am indebted to everyone there who I’ve worked with and learnt from. Even as the pandemic changed the nature of working The Mill has been nothing short of an incredible place to work and have fun while doing so.&lt;&#x2F;p&gt;
+&lt;p&gt;All good things must come to an end though, and I’m beyond excited to continue working as Lighting Supervisor in a new environment with fresh challenges and faces!&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>

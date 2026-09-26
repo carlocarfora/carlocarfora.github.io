@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title> - popos</title>
+    <link href="https://carlocarfora.co.uk/tags/popos/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://carlocarfora.co.uk"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2022-06-28T00:00:00+00:00</updated>
+    <id>https://carlocarfora.co.uk/tags/popos/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Installing Teradici PcoIP on Pop!_OS 22.04</title>
+        <published>2022-06-28T00:00:00+00:00</published>
+        <updated>2022-06-28T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://carlocarfora.co.uk/blog/installing-teradici-pcoip-on-popos/" type="text/html"/>
+        <id>https://carlocarfora.co.uk/blog/installing-teradici-pcoip-on-popos/</id>
+        
+        <content type="html">&lt;p&gt;Setting up a new computer with Pop!_OS, I need to use a Teradici PCoIP Software Client for remoting into work. I’d previously been using Fedora where it had to be run in a docker container. I thought it would run natively as it was built for Ubuntu, but there were some missing dependencies and so back to setting it up in a docker container.&lt;&#x2F;p&gt;
+&lt;p&gt;Hopefully the instructions below help anyone trying to install the Teradici PCoIP Software client!&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;the-official-docs&quot;&gt;The Official Docs&lt;&#x2F;h3&gt;
+&lt;p&gt;The docs on installing it without a container:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.teradici.com&#x2F;web-help&#x2F;pcoip_client&#x2F;LInux&#x2F;21.03&#x2F;installation&#x2F;install_client_ubuntu&#x2F;&quot;&gt;https:&#x2F;&#x2F;www.teradici.com&#x2F;web-help&#x2F;pcoip_client&#x2F;LInux&#x2F;21.03&#x2F;installation&#x2F;install_client_ubuntu&#x2F;&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Docs on installing in a docker container:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.teradici.com&#x2F;web-help&#x2F;pcoip_client&#x2F;linux&#x2F;21.01&#x2F;reference&#x2F;docker_containers&#x2F;&quot;&gt;https:&#x2F;&#x2F;www.teradici.com&#x2F;web-help&#x2F;pcoip_client&#x2F;linux&#x2F;21.01&#x2F;reference&#x2F;docker_containers&#x2F;&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Trying it with the official docs had no luck. The repo was throwing up some errors, so back to the drawing board.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;what-worked&quot;&gt;What Worked&lt;&#x2F;h3&gt;
+&lt;p&gt;After some head scratching the official docs looked to be outdated so modifying the instructions a bit worked for me. Turns out the official dockerfile was pointing to the old repo and only by looking at the instructions to install without a container and then the container instructions did I realise this. Steps below!&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;steps&quot;&gt;Steps&lt;&#x2F;h3&gt;
+&lt;p&gt;Install Docker. I had to use docker.io for Pop!_OS.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span&gt; sudo apt-get install docker.io
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span&gt; xhost +local:docker
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Add docker to sudo so don&#x27;t need sudo commands. Not required though.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span&gt; sudo groupadd docker
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span&gt; sudo usermod&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -a -G&lt;&#x2F;span&gt;&lt;span&gt; docker  $&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;USER
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Create a directory for the dockerfile to live in first, cd to it and then build.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span&gt; cd &amp;lt;directory with Dockerfile&amp;gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span&gt; docker build&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -t&lt;&#x2F;span&gt;&lt;span&gt; pcoip-client .
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Dockerfile for docker container. Note that the user name has been changed to my user name carlo and user&#x2F;group id&#x27;s were already 1000 for me. You need to make sure you set this up properly or it won&#x27;t work. Use the command id to find your user&#x2F;group id&#x27;s and change carlo to your username.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;FROM&lt;&#x2F;span&gt;&lt;span&gt; ubuntu:18.04
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Use the following two lines to install the Teradici repository package
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;RUN&lt;&#x2F;span&gt;&lt;span&gt; apt-get update &amp;amp;&amp;amp; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;apt-get&lt;&#x2F;span&gt;&lt;span&gt; install&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -y&lt;&#x2F;span&gt;&lt;span&gt; wget &amp;amp;&amp;amp; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;apt-get&lt;&#x2F;span&gt;&lt;span&gt; install&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -y&lt;&#x2F;span&gt;&lt;span&gt; curl
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# This was the bit that is wrong in the example dockerfile
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;RUN&lt;&#x2F;span&gt;&lt;span&gt; curl&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -1sLf&lt;&#x2F;span&gt;&lt;span&gt; https:&#x2F;&#x2F;dl.teradici.com&#x2F;DeAdBCiUYInHcSTy&#x2F;pcoip-client&#x2F;cfg&#x2F;setup&#x2F;bash.deb.sh | &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sh&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;ubuntu &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;codename&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;bionic &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;bash
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Install apt-transport-https to support the client installation
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;RUN&lt;&#x2F;span&gt;&lt;span&gt; apt-get update &amp;amp;&amp;amp; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;apt-get&lt;&#x2F;span&gt;&lt;span&gt; install&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -y&lt;&#x2F;span&gt;&lt;span&gt; apt-transport-https
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Install the client application
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;RUN&lt;&#x2F;span&gt;&lt;span&gt; apt-get install&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -y&lt;&#x2F;span&gt;&lt;span&gt; pcoip-client
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Setup a functional user within the docker container with the same permissions as your local user.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Replace 1000 with your user &#x2F; group id
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Replace myuser with your local username
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;RUN&lt;&#x2F;span&gt;&lt;span&gt; export uid=1000 gid=1000 &amp;amp;&amp;amp; \
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;mkdir -p&lt;&#x2F;span&gt;&lt;span&gt; &#x2F;etc&#x2F;sudoers.d&#x2F; &amp;amp;&amp;amp; \
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;mkdir -p&lt;&#x2F;span&gt;&lt;span&gt; &#x2F;home&#x2F;carlo &amp;amp;&amp;amp; \
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;echo &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;carlo:x:&lt;&#x2F;span&gt;&lt;span&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;uid&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;}:&lt;&#x2F;span&gt;&lt;span&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;gid&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;}:carlo,,,:&#x2F;home&#x2F;carlo:&#x2F;bin&#x2F;bash&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; &amp;gt;&amp;gt; &#x2F;etc&#x2F;passwd &amp;amp;&amp;amp; \
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;echo &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;carlo:x:&lt;&#x2F;span&gt;&lt;span&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;uid&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;}:&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; &amp;gt;&amp;gt; &#x2F;etc&#x2F;group &amp;amp;&amp;amp; \
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;echo &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;carlo ALL=(ALL) NOPASSWD: ALL&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; &amp;gt; &#x2F;etc&#x2F;sudoers.d&#x2F;carlo &amp;amp;&amp;amp; \
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;chmod&lt;&#x2F;span&gt;&lt;span&gt; 0440 &#x2F;etc&#x2F;sudoers.d&#x2F;carlo &amp;amp;&amp;amp; \
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;chown &lt;&#x2F;span&gt;&lt;span&gt;${&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;uid&lt;&#x2F;span&gt;&lt;span&gt;}:${&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;gid&lt;&#x2F;span&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -R&lt;&#x2F;span&gt;&lt;span&gt; &#x2F;home&#x2F;carlo
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Set some environment variables for the current user
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;USER&lt;&#x2F;span&gt;&lt;span&gt; carlo
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ENV&lt;&#x2F;span&gt;&lt;span&gt; HOME &#x2F;home&#x2F;carlo
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Set the path for QT to find the keyboard context
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ENV&lt;&#x2F;span&gt;&lt;span&gt; QT_XKB_CONFIG_ROOT &#x2F;user&#x2F;share&#x2F;X11&#x2F;xkb
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ENTRYPOINT&lt;&#x2F;span&gt;&lt;span&gt; exec pcoip-client
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Command to run the docker container. Again don&#x27;t forget to change carlo to your username.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span&gt; docker run&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -d --rm -h&lt;&#x2F;span&gt;&lt;span&gt; myhost&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -v &lt;&#x2F;span&gt;&lt;span&gt;$(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;pwd&lt;&#x2F;span&gt;&lt;span&gt;)&#x2F;.config&#x2F;:&#x2F;home&#x2F;carlo&#x2F;.config&#x2F;Teradici&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -v &lt;&#x2F;span&gt;&lt;span&gt;$(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;pwd&lt;&#x2F;span&gt;&lt;span&gt;)&#x2F;.logs:&#x2F;tmp&#x2F;Teradici&#x2F;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;USER&lt;&#x2F;span&gt;&lt;span&gt;&#x2F;PCoIPClient&#x2F;logs&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -v&lt;&#x2F;span&gt;&lt;span&gt; &#x2F;tmp&#x2F;.X11-unix:&#x2F;tmp&#x2F;.X11-unix&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -e&lt;&#x2F;span&gt;&lt;span&gt; DISPLAY=$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;DISPLAY&lt;&#x2F;span&gt;&lt;span&gt; pcoip-client
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Hope that has helped anyone reading this to get it installed on their machine!&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>
